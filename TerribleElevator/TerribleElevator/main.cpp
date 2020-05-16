@@ -3,7 +3,6 @@
 #include "Graphics.h"
 
 Graphics* graphics; 
-
 LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {
 	if(uMsg == WM_DESTROY) {
 		PostQuitMessage(0);
@@ -15,17 +14,45 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 
 		graphics->ClearScreen(0.0f, 0.0f, 0.5f);
 
-		graphics->DrawCircle(550, 360, 50,
+		// Draw menu wrap
+		graphics->DrawRectangle(
+			290, 600, // top left x, y
+			990,120, // bottom right x, y
 			0.5f,
 			0.5f,
 			0.5f,
-			0.5f);
+			0.5f
+		);
+		graphics->FillRectangle(
+			290, 600, // top left x, y
+			990, 120, // bottom right x, y
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
 
-		graphics->DrawCircle(700, 360, 50,
+		// Draw floor number display screen
+		graphics->DrawRectangle(
+			325, 580, // top left x, y
+			955, 480, // bottom right x, y
 			0.5f,
 			0.5f,
 			0.5f,
-			0.5f);
+			0.5f
+		);
+
+		// Draw floor number (in display sceen)
+
+		// Draw floor buttons
+		graphics->DrawCircle( // Floor 1
+			380, ,// x,y
+			30, // radius
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
 
 		graphics->EndDraw();
 	}
