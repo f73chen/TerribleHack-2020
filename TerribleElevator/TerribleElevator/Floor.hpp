@@ -8,19 +8,22 @@ using namespace std;
 
 class Floor {
 private:
-    int floorNum        // floor number
-	int numPeople;      // number of people waiting on a floor
-    bool up;            // people waiting to go up
-    int numUp;          // number of times up was pressed
-    bool down;          // people waiting to go down
-    int numDown;        // number of times down was pressed
-    vector<People>;     // vector of people waiting
+    int floorNum                 // floor number
+	int numPeopleUp;             // number of people needing to go up
+    int numPeopleDown;           // number of people needing to go down
+    int totalPeople;             // total number of people waiting on floor
+    int numUp;                   // number of times up was pressed
+    int numDown;                 // number of times down was pressed
 public:
 	// constructors
     Floor(floorNum);
 	// methods
-    void press_up();    // person presses up
-    void press_down();  // person presses down
-
-
+    int press_up();                         // person presses up
+    int press_down();                       // person presses down
+    int get_num_people();                   // returns number of people waiting
+    void addPerson(People person);          // increments numPeople
+    void elevator_arrive(int direction);    // resets button pressed
+    // friends
+    friend class Manager;
+    friend class Elevator;
 };
