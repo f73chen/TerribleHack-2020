@@ -37,14 +37,16 @@ public:
 
 	// PURPOSE: checks the position, direction, buttons pressed, and nextStop to determine whether it moves at 
 	// INPUT: nnextStop given by the manager, tells where the next stop along the path someone pressed a button
-	void move();
+	// INPUT: numCalls is the number of times the people waiting have pressed the up/down buttons
+	void move(int numCalls);
 
 	// PURPOSE: checks whether the car can move to the next space specified
 	bool validMove();
 
 	// PURPOSE: checks current floor, direction, stopping distance and next floor to determine what speed it should travel at
 	// NOTE: when arriving at the destination floor, speed should be less than accel (either 0 or accel/2)
-	int nextSpeed();
+	// INPUT: numCalls is the number of times the people waiting have pressed the up/down buttons
+	int nextSpeed(int numCalls);
 
 	// PURPOSE: add an "additional" number of people into the elevator
 	// OUTPUT: int is the number of people that couldn't make it in

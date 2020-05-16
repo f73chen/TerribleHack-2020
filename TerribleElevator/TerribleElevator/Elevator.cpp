@@ -8,9 +8,9 @@ using namespace std;
 
 // PURPOSE: checks the position, direction, buttons pressed, and nextStop to determine whether it moves at 
 // INPUT: nnextStop given by the manager, tells where the next stop along the path someone pressed a button
-void Elevator::move() {
+void Elevator::move(int numCalls) {
 	if (validMove()) {
-		speed = nextSpeed(); // calculates how fast to travel next
+		speed = nextSpeed(numCalls); // calculates how fast to travel next
 		// NOTE: directX should use the speed information to know how fast to animate movement
 		floor += direction; // if direction positive then go up, else stay put or go down
 	}
@@ -33,29 +33,35 @@ bool Elevator::validMove() {
 
 // PURPOSE: checks current floor, direction, stopping distance and next floor to determine what speed it should travel at
 // NOTE: when arriving at the destination floor, speed should be less than accel (either 0 or accel/2)
-int Elevator::nextSpeed() {
+int Elevator::nextSpeed(int numCalls) {
 	// if move is invalid, it should be stopped
-	if (!validMove()) { return 0; }
+	int boost = numCalls / FLOORS;				// integer division of the total number of floors
+	int boostedStop = stoppingDistance;			// able to stop faster
+	if (stoppingDistance - boost >= 1) { stoppingDistance -= boost; }
+	else { stoppingDistance = 1; }
+	int boostedSpeed = MAX_SPEED + boost;		// able to have a higher topspeed
+
+	if (!validMove()) { return -1; }
 	int absDist = abs(floor - nextStop);		// absolute distance between current position and target
-	int accel = MAX_SPEED / stoppingDistance;	// how much it can accelerate and decelerate at each floor
+	int accel = boostedSpeed / boostedStop;	// how much it can accelerate and decelerate at each floor
 
 	// if remaining distance is more than stopping distance
-	if (absDist > stoppingDistance) {
+	if (absDist > boostedStop) {
 		speed += accel;	// speed up by one floor's worth of acceleration
-		if (speed >= MAX_SPEED) { // if over the speed limit set it back to the limit
-			speed = MAX_SPEED;
+		if (speed >= boostedSpeed) { // if over the speed limit set it back to the limit
+			speed = boostedSpeed;
 		}
 	}
 	else { // else within range of stopping, might have to slow down
 		if (speed == 0) { // if at rest, must accelerate a bit to move
-			if (absDist > stoppingDistance/2) { // if have plenty of room
+			if (absDist > boostedStop / 2) { // if have plenty of room
 				speed += accel; // then acceleration; plan to decelerate at the next floor
 			}
 			else { // if too close to properly accelerate, do partial
 				speed += accel / 2;
 			}
 		}
-		else if (speed == MAX_SPEED) { // if starting at max speed, then must slow down
+		else if (speed == boostedSpeed) { // if starting at max speed, then must slow down
 			speed -= accel;
 		}
 		else { // if speed is not 0 but not max either
@@ -67,6 +73,7 @@ int Elevator::nextSpeed() {
 			}
 		}
 	}
+	return 0; // move was accepted
 }
 
 // PURPOSE: add an "additional" number of people into the elevator
