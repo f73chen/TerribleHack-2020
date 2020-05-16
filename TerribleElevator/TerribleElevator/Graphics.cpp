@@ -62,5 +62,5 @@ void Graphics::FillRectangle(float w, float x, float y, float z, float r, float 
 
 void Graphics::DrawTextW(const wchar_t* text, IDWriteTextFormat* textFormat, float w, float x, float y, float z, float r, float g, float b, float a) {
 	brush->SetColor(D2D1::ColorF(r, g, b, a));
-	renderTarget->DrawTextW(text, (UINT32) wsclen(text), );
+	// renderTarget->DrawTextW(text, (UINT32) wsclen(text), );
 }
