@@ -33,5 +33,5 @@ public:
 	void DrawRectangle(float w, float x, float y, float z, float r, float g, float b, float a);
 	void FillRectangle(float w, float x, float y, float z, float r, float g, float b, float a);
 
-	void DrawTextW(const WCHAR* text, IDWriteTextFormat* textFormat, float w, float x, float y, float z, float r, float g, float b, float a);
+	// void DrawTextW(const WCHAR* text, IDWriteTextFormat* textFormat, float w, float x, float y, float z, float r, float g, float b, float a);
 };
