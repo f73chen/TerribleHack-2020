@@ -21,8 +21,13 @@ People::People(int initialFloor) {
 }
 
 // methods
-int People::getFloor() {return curFloor;}
-int People::getGoalFloor() {return goalFloor;}
-int People::getFrustrationLevel() {return frustrationLevel;}
-void People::setFrustrationLevel(int level) {frustrationLevel = level;}
-void People::newFloor() {goalFloor = rand() % 10 + 1;}
+int People::get_floor() {return curFloor;}
+int People::get_goal_floor() {return goalFloor;}
+int People::get_frustration_level() {return frustrationLevel;}
+void People::set_frustration_level(int level) {frustrationLevel = level;}
+void People::new_floor() {goalFloor = rand() % 10 + 1;}
+void People::be_rude() {
+    int level = get_frustration_level();
+    // hold door close
+    // presses floor buttons so that it stops on every floor
+}

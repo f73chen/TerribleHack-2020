@@ -16,10 +16,11 @@ public:
     People();
 	People(int initialFloor);
     // methods
-    int getFloor();                         // returns current floor
-    int getGoalFloor();                     // returns goal floor
-    int getFrustrationLevel();              // returns frustration level
-    void setFrustrationLevel(int level);    // sets frustration level to passed parameter
-    void newFloor();                        // sets new goal floor to random floor
+    int get_floor();                          // returns current floor
+    int get_goal_floor();                     // returns goal floor
+    int get_frustration_level();              // returns frustration level
+    void set_frustration_level(int level);    // sets frustration level to passed parameter
+    void new_floor();                         // sets new goal floor to random floor
+    void be_rude();                           // person does something rude based on frustration level
 
 };
