@@ -14,7 +14,7 @@ private:
     int frustrationCap;     // frustration capacity 
 public:
 	// constructors
-	People() {}
+	People();
     // methods
     void randomize();       // randomizes properties
     
