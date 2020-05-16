@@ -1,0 +1,5 @@
+﻿  render.cpp
+C:\Users\lucas\Desktop\Programming\TerribleHack\TerribleElevator\TerribleElevator\render.cpp(54,1): error C4996: 'ID2D1Factory::GetDesktopDpi': Deprecated. Use DisplayInformation::LogicalDpi for Windows Store Apps or GetDpiForWindow for desktop apps.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\d2d1.h(3355): message : see declaration of 'ID2D1Factory::GetDesktopDpi'
+  TerribleElevator.cpp
+  Generating Code...
