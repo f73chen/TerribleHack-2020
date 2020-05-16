@@ -7,7 +7,7 @@ using namespace std;
 
 class Elevator {
 private:
-	int position;	// which floor it's on
+	int floor;		// which floor it's on
 	int direction;	// -1 down, 0 stationary, 1 up
 	bool canMove;	// whether manager knows the door is closed and elevator can move again
 	vector<bool> buttonsPressed;	// vector of buttons, size is number of floors, 1 is pressed 0 is not pressed
@@ -17,9 +17,9 @@ private:
 	int numPeople;	// number of people currently in the elevator
 public:
 	// constructors
-	Elevator() :position(1), direction(0), canMove(false), buttonsPressed({false}), nextStop(1), FLOORS(1), CAPACITY(0), numPeople(0) {}
-	Elevator(int nposition, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nFLOORS, int nCAPACITY, int nnumPeople) :
-		position(nposition), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed), nextStop(nnextStop), FLOORS(nFLOORS), CAPACITY(nCAPACITY), numPeople(nnumPeople) {}
+	Elevator() :floor(1), direction(0), canMove(false), buttonsPressed({false}), nextStop(1), FLOORS(1), CAPACITY(0), numPeople(0) {}
+	Elevator(int nfloor, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nFLOORS, int nCAPACITY, int nnumPeople) :
+		floor(nfloor), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed), nextStop(nnextStop), FLOORS(nFLOORS), CAPACITY(nCAPACITY), numPeople(nnumPeople) {}
 
 
 };
