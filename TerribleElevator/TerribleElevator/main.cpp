@@ -43,16 +43,72 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 		);
 
 		// Draw floor number (in display sceen)
+		// graphics->DrawTextW(
+
+		// );
 
 		// Draw floor buttons
-		graphics->DrawCircle( // Floor 1
-			380, ,// x,y
+		graphics->DrawCircle( // Floor 7
+			325+420+105, 360+60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
 			0.5f,
 			0.5f
 		);
+		graphics->DrawCircle( // Floor 6
+			325+210+105, 360+60,// x,y
+			30, // radius
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
+		graphics->DrawCircle( // Floor 5
+			325+105, 360+60,// x,y
+			30, // radius
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
+		graphics->DrawCircle( // Floor 4
+			290+525+(175/2), 240+60,// x,y
+			30, // radius
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
+		graphics->DrawCircle( // Floor 3
+			290+350+(175/2), 240+60,// x,y
+			30, // radius
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
+		graphics->DrawCircle( // Floor 2
+			290+175+(175/2), 240+60,// x,y
+			30, // radius
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
+		graphics->DrawCircle( // Floor 1
+			290+(175/2), 240+60,// x,y
+			30, // radius
+			0.5f,
+			0.5f,
+			0.5f,
+			0.5f
+		);
+
+		// Draw open and close buttons
+		// graphics->DrawRectangle(
+
+		// );
 
 		graphics->EndDraw();
 	}
