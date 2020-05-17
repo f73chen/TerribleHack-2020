@@ -17,8 +17,6 @@ private:
 	vector<People*> peopleList;		// list of all people objects
 	vector<Floor*> floorList;		// list of floor objects 
 	vector<Elevator*> elevatorList;	// list of all elevator objects
-	vector<vector<People*>> floorPeopleList;		// list of everyone in each floor
-	vector<vector<People*>> elevatorPeopleList;		// list of everyone in each elevator
 public:
 	// default constructor
 	Manager() { initFloors(); initPeople(); initElevators(); }

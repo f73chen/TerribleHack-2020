@@ -7,5 +7,6 @@ const int FLOORS = 7;			// total number of floors in the building
 const int PEOPLE = 10;			// total number of NPC people
 const int ELEVATORS = 2;		// total number of elevators
 const int MAX_FRUS = 5;			// maximum level of frustration
+const int DIST_BTW_FLOORS = 12;	// 12 units of travel between two floors because it divides nicely
 
 #endif

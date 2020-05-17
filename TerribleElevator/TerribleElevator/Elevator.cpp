@@ -9,12 +9,17 @@
 using namespace std;
 
 // default constructor
-Elevator::Elevator() :floor(1), speed(0), direction(0), canMove(false), buttonsPressed({ false }), nextStop(1), numPeople(0), stoppingDistance(1) {}
+Elevator::Elevator() :floor(1), speed(0), direction(0), canMove(false), nextStop(1), stoppingDistance(1), peopleList({}), distanceToNextFloor(DIST_BTW_FLOORS), numPeople(0) {
+	vector<bool> nbuttonsPressed(FLOORS, false);
+	buttonsPressed = nbuttonsPressed; // assumes that no buttons are pressed
+}
 
 // parameterized constructor
-Elevator::Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nnumPeople, int nstoppingDistance) :
+Elevator::Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nstoppingDistance, vector<People*> npeopleList) :
 	floor(nfloor), speed(nspeed), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed),
-	nextStop(nnextStop), numPeople(nnumPeople), stoppingDistance(nstoppingDistance) {}
+	nextStop(nnextStop), stoppingDistance(nstoppingDistance), peopleList(npeopleList), distanceToNextFloor(DIST_BTW_FLOORS) {
+	numPeople = peopleList.size();
+}
 
 // PURPOSE: checks the position, direction, buttons pressed, and nextStop to determine whether it moves at 
 // INPUT: nnextStop given by the manager, tells where the next stop along the path someone pressed a button
