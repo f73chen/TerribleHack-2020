@@ -12,6 +12,8 @@ private:
     int frustrationLevel;    // current frustration level
     int frustrationCap;      // frustration capacity 
     int direction;           // going up = -1, going down = 1
+    bool pressAll;           // manager needs to handle pressing all buttons
+    int holdOpen;            // manager needs to handle seconds door is held open
 public:
 	// constructors
     People();
@@ -25,6 +27,6 @@ public:
     void new_floor();                         // sets new goal floor to random floor
     void be_rude();                           // person does something rude based on frustration level
     // friends
-    friend class Floor;
+    friend class Manager;
 
 };

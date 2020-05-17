@@ -13,6 +13,8 @@ People::People() {
     frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
     frustrationCap = 5;                                 // max frustration is 5
     direction = goalFloor - initialFloor < 0? -1 : 1;   // -1 if going down, 1 if going up
+    pressAll = false;
+    holdOpen = 0;
 }
 People::People(int initialFloor) {
     initialFloor = initialFloor;                        // initial floor set to whatever is passed in
@@ -20,6 +22,8 @@ People::People(int initialFloor) {
     frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
     frustrationCap = 5;                                 // max frustration is 5
     direction = goalFloor - initialFloor < 0? -1 : 1;   // -1 if going down, 1 if going up
+    pressAll = false;
+    holdOpen = 0;
 }
 
 // methods
@@ -37,6 +41,7 @@ void People::new_floor() {goalFloor = rand() % 10 + 1;}
 
 void People::be_rude() {
     int level = get_frustration_level();
-    // hold door close
-    // presses floor buttons so that it stops on every floor
+    if(frustrationLevel > 3) pressAll = true;
+    
+    // presses floor buttons so that it stops on every floor (Elevator class)
 }

@@ -25,5 +25,4 @@ public:
     void elevator_arrive(int direction);    // resets button pressed
     // friends
     friend class Manager;
-    friend class Elevator;
 };
