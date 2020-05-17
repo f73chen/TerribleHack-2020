@@ -46,7 +46,21 @@ int Manager::run() {
 		floorPeopleList[tempPerson->initialFloor - 1].push_back(tempPerson);
 	} // make sure to update each list after an action involving that floor is completed
 
-	while (true) {
+	/*while (true) {
 
-	}
+	}*/
+}
+
+void Manager::test() {
+	peopleList = {};		// resets all list contents
+	floorList = {};
+	elevatorList = {};
+	floorPeopleList = {};
+	elevatorPeopleList = {};
+
+	initPeople();
+	for (int i = 0; i < PEOPLE; i++) { cout << "People " << i << ": Initial floor: " << peopleList[i]->initialFloor << endl; }
+	/*initFloors();
+	initElevators();
+	run();*/
 }

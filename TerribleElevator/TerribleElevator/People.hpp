@@ -19,7 +19,6 @@ public:
     People();
 	People(int initialFloor);
     // methods
-    int get_floor();                          // returns current floor
     int get_goal_floor();                     // returns goal floor
     int get_frustration_level();              // returns frustration level
     int get_direction();                      // returns direction of person

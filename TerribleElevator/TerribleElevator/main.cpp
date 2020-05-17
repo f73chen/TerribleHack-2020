@@ -1,6 +1,10 @@
 #include <Windows.h>
 #include <d2d1.h>
 #include "Graphics.h"
+#include "Manager.hpp"
+#include "Floor.hpp"
+#include "Elevator.h"
+#include "People.hpp"
 
 Graphics* graphics; 
 LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {

@@ -38,5 +38,8 @@ public:
 
 	// the main program cycle, returns integer error codes
 	int run();
+
+	// in-house tests of the contents of each list
+	void test();
 };
 #endif

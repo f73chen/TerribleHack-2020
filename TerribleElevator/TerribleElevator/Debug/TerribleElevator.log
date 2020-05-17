@@ -1,5 +1,22 @@
-﻿  render.cpp
-C:\Users\lucas\Desktop\Programming\TerribleHack\TerribleElevator\TerribleElevator\render.cpp(54,1): error C4996: 'ID2D1Factory::GetDesktopDpi': Deprecated. Use DisplayInformation::LogicalDpi for Windows Store Apps or GetDpiForWindow for desktop apps.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\d2d1.h(3355): message : see declaration of 'ID2D1Factory::GetDesktopDpi'
+﻿  Elevator.cpp
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(106,20): warning C4018: '<': signed/unsigned mismatch
+  Floor.cpp
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Floor.cpp(28,32): error C3867: 'People::get_direction': non-standard syntax; use '&' to create a pointer to member
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Floor.cpp(28,32): error C2296: '<': illegal, left operand has type 'int (__thiscall People::* )(void)'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Floor.cpp(28,32): error C2297: '<': illegal, right operand has type 'int (__thiscall People::* )(void)'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Floor.cpp(29,37): error C3867: 'People::get_direction': non-standard syntax; use '&' to create a pointer to member
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Floor.cpp(29,37): error C2296: '>': illegal, left operand has type 'int (__thiscall People::* )(void)'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Floor.cpp(29,37): error C2297: '>': illegal, right operand has type 'int (__thiscall People::* )(void)'
+  Graphics.cpp
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Graphics.cpp(63,16): error C2039: 'DrawTextW': is not a member of 'Graphics'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Graphics.h(9): message : see declaration of 'Graphics'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Graphics.cpp(64,2): error C2065: 'brush': undeclared identifier
+  main.cpp
+  Manager.cpp
+  People.cpp
   TerribleElevator.cpp
+c1xx : fatal error C1083: Cannot open source file: 'TerribleElevator.cpp': No such file or directory
   Generating Code...
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(52): error C4716: 'Manager::run': must return a value
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\main.cpp(117): warning C4715: 'WindowProc': not all control paths return a value
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(32): warning C4715: 'Elevator::validMove': not all control paths return a value

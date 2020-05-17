@@ -13,8 +13,8 @@ People::People() {
     frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
     frustrationCap = 5;                                 // max frustration is 5
     direction = goalFloor - initialFloor < 0? -1 : 1;   // -1 if going down, 1 if going up
-    pressAll = false;
-    holdOpen = 0;
+    pressAll = false;                                   // whether the person is evil and presses all buttons
+    holdOpen = 0;                                       // whether the person holds open the door
 }
 People::People(int initialFloor) {
     initialFloor = initialFloor;                        // initial floor set to whatever is passed in
@@ -22,13 +22,11 @@ People::People(int initialFloor) {
     frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
     frustrationCap = 5;                                 // max frustration is 5
     direction = goalFloor - initialFloor < 0? -1 : 1;   // -1 if going down, 1 if going up
-    pressAll = false;
-    holdOpen = 0;
+    pressAll = false;                                   // whether the person is evil and presses all buttons
+    holdOpen = 0;                                       // whether the person holds open the door
 }
 
 // methods
-int People::get_floor() {return curFloor;}
-
 int People::get_goal_floor() {return goalFloor;}
 
 int People::get_frustration_level() {return frustrationLevel;}
@@ -41,7 +39,9 @@ void People::new_floor() {goalFloor = rand() % 10 + 1;}
 
 void People::be_rude() {
     int level = get_frustration_level();
-    if(frustrationLevel > 3) pressAll = true;
-    
+    if (frustrationLevel > 3) {
+        pressAll = true;        // becomes evil
+        frustrationLevel = 0;   // cathartic
+    }
     // presses floor buttons so that it stops on every floor (Elevator class)
 }
