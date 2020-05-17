@@ -22,6 +22,11 @@ User::User() {
 }
 
 // methods
+int User::getCurrentFloor() { 
+    int curFloor = (rand() % 7) + 1; 
+    return curFloor;
+}
+
 int User::get_goal_floor() { return goalFloor; }
 
 void User::setGoalFloor(int floor) { goalFloor = floor; }
