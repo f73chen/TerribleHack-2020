@@ -4,6 +4,8 @@
 #include "Graphics.h"
 #include "gui.h"
 #include "ElevatorRender.h"
+#include "User.hpp"
+#include "Manager.hpp"
 
 Graphics* graphics;
 Gui gui;
@@ -95,6 +97,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 			}
 			else {
 				elevatorrender.drawShafts(graphics);
+				elevatorrender.drawElevators(Manager::getElevatorFloorNums(), graphics);
+				elevatorrender.drawWaitingFloor(User::getCurrentFloor(), graphics);
 			}
 
 			graphics->EndDraw();
