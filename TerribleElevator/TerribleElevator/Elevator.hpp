@@ -28,7 +28,7 @@ public:
 	Elevator();
 
 	// constructor with parameters
-	Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, vector<People*> npeopleList);
+	Elevator(int nfloor, int nspeed, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, vector<People*> npeopleList);
 
 	// returns whether adding more people would not overload it
 	bool withinCapacity(int additional) { return peopleList.size() + additional <= CAPACITY; }

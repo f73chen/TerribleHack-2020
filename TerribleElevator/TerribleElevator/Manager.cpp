@@ -40,7 +40,7 @@ void Manager::initPeople() {
 			floorList[tempPerson->initialFloor - 1]->numDown++; // new person request to go down
 		}
 	}
-	People* userPerson = new People();
+	People* userPerson = new People(1); // PREFERABLY CONNECT USERPERSON TO USER'S INITIAL FLOOR
 	userPerson->id = 1; // make this People unique from the others
 	// @@@@@@@ SET USERPERSON'S GOALFLOOR TO WHATEVER USER CHOOSES IN THE BUTTON
 	peopleList.push_back(userPerson);
@@ -56,19 +56,19 @@ int Manager::run() {
 	// new people are generated into peopleList, copied into floorList, then walks into elevatorList
 
 	// testing output to make sure people are put into their corresponding floor lists
-	/*for (Floor* eachFloor : floorList) {
+	for (Floor* eachFloor : floorList) {
 		cout << "Floor: " << eachFloor->floorNum << ", numUp: " << eachFloor->numUp << ", numDown: " << eachFloor->numDown << endl;
 		for (People* tempPerson : eachFloor->peopleList) {
-			cout << "Initial floor: " << tempPerson->initialFloor << ", goal floor: " << tempPerson->goalFloor << endl;
+			cout << "ID: " << tempPerson->id << ", Initial floor: " << tempPerson->initialFloor << ", goal floor: " << tempPerson->goalFloor << endl;
 		}
-	}*/
+	}
 
 	// int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, vector<People*> npeopleList
-	Elevator* tempNewEl = new Elevator(5, 6, -1, true, { false, false, false, false, false, false, false }, 2, {});
+	Elevator* tempNewEl = new Elevator(5, 6, true, { false, false, false, false, false, false, false }, 2, {});
 	elevatorList[1] = tempNewEl;
 	vector<int> doorHoldTime(ELEVATORS, 0); // if the elevator is being held for its door
 
-	for(int round = 0; round < 20; round++) { // USUALLY SET TO WHILE TRUE INSTEAD OF A FOR LOOP
+	for(int round = 0; round < 30; round++) { // USUALLY SET TO WHILE TRUE INSTEAD OF A FOR LOOP
 		cout << endl << "Cycle " << round << ": " << endl;
 		vector<int> numCalls = {0, 0};
 		
@@ -103,7 +103,7 @@ int Manager::run() {
 				}
 			}
 		}
-		Sleep(200);
+		//Sleep(200);
 	}
 
 	// testing output to make sure people are put into their corresponding floor lists
@@ -147,7 +147,7 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 				// @@@@@@ MAKE USER CHOOSE A NEW GOAL FLOOR THAT IS NOT THE CURRENT
 				remainingList.push_back(tempPerson); // add them to the list of people that remain
 			}
-			else { // if the person is not the user, then just remove them and generate a new one
+			else { // if the person is not the user, then just remove them and generate a new one later
 				auto index = find(peopleList.begin(), peopleList.end(), tempPerson);
 				if (index != peopleList.end()) { // if tempPerson is indeed found in peopleList
 					swap(*index, peopleList.back()); // swaps target element with last
@@ -170,6 +170,9 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 		if (tempElevator->numPeople < CAPACITY) { // if the elevator is not full
 			tempElevator->peopleList.push_back(tempWaitlist[0]); // first person waiting walks into the elevator
 			tempElevator->numPeople++;
+			if (tempWaitlist[0]->id == 1) { // if it's the user entering the elevator
+				cout << "User entered elevator" << endl;
+			}
 			//cout << "Person moved into elevator" << endl;
 			// if someone that wanted to go up got in the elevator, reduce floor's up call
 			if (tempWaitlist[0]->goalFloor > tempWaitlist[0]->initialFloor) { floorList[tempElevator->floor - 1]->numUp--; /*cout << "Up Pressed" << endl;*/ }
@@ -213,11 +216,11 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 
 	cout << "People waiting on floor " << currentFloor << ": " << endl;
 	for (int m = 0; m < tempWaitlist.size(); m++) {
-		cout << "Person " << m << " on floor " << tempWaitlist[m]->initialFloor << " wants to go to floor " << tempWaitlist[m]->goalFloor << endl;
+		cout << "ID " << tempWaitlist[m]->id << " on floor " << tempWaitlist[m]->initialFloor << " wants to go to floor " << tempWaitlist[m]->goalFloor << endl;
 	}
 	cout << "People in this elevator: " << endl;
 	for (int m = 0; m < tempElevator->peopleList.size(); m++) {
-		cout << "Person " << m << " on floor " << tempElevator->peopleList[m]->initialFloor << " wants to go to floor " << tempElevator->peopleList[m]->goalFloor << endl;
+		cout << "ID " << tempElevator->peopleList[m]->id << " on floor " << tempElevator->peopleList[m]->initialFloor << " wants to go to floor " << tempElevator->peopleList[m]->goalFloor << endl;
 	}
 	//cout << "Internal buttons pressed: " << endl;
 	/*for (int m = 0; m < FLOORS; m++) {

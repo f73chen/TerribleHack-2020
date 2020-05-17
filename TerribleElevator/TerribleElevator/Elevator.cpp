@@ -10,17 +10,19 @@
 using namespace std;
 
 // default constructor
-Elevator::Elevator() :floor(1), speed(6), direction(1), canMove(true), nextStop(2), peopleList({}), distanceToNextFloor(DIST_BTW_FLOORS), numPeople(0) {
+Elevator::Elevator() :floor(2), speed(6), canMove(true), nextStop(1), peopleList({}), distanceToNextFloor(DIST_BTW_FLOORS), numPeople(0) {
 	vector<bool> nbuttonsPressed(FLOORS, false);
 	buttonsPressed = nbuttonsPressed; // assumes that no buttons are pressed
 	// NOTE: nextStop must not be the same as floor
+	direction = nextStop > floor ? 1 : -1;
 }
 
 // parameterized constructor
-Elevator::Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, vector<People*> npeopleList) :
-	floor(nfloor), speed(nspeed), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed),
+Elevator::Elevator(int nfloor, int nspeed, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, vector<People*> npeopleList) :
+	floor(nfloor), speed(nspeed), canMove(ncanMove), buttonsPressed(nbuttonsPressed),
 	nextStop(nnextStop), peopleList(npeopleList), distanceToNextFloor(DIST_BTW_FLOORS) {
 	numPeople = peopleList.size();
+	direction = nextStop > floor ? 1 : -1;
 }
 
 // PURPOSE: checks whether the car can move to the next space specified
