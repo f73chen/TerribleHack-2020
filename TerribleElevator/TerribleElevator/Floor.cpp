@@ -2,14 +2,16 @@
 #include <algorithm>
 #include <vector>
 #include <array>
-#include "People.hpp"
+#include <string>
+#include <cstdlib>
+#include <ctime>
 #include "Floor.hpp"
 
 using namespace std;
 
 // contructors
 Floor::Floor(int nfloorNum) : numPeopleUp(0), numPeopleDown(0), numUp(0), numDown(0) {
-    nfloorNum = floorNum;
+    floorNum = nfloorNum;
     totalPeople = numPeopleDown + numPeopleUp;
 }
 
@@ -25,8 +27,8 @@ int Floor::press_down() {
 int Floor::get_num_people() { return totalPeople; }
 
 void Floor::addPerson(People person) {
-    if (person.get_direction < 0) numPeopleDown++;
-    else if (person.get_direction > 0) numPeopleUp++;
+    if (person.get_direction() < 0) numPeopleDown++;
+    else if (person.get_direction() > 0) numPeopleUp++;
     else { cout << "Error: new person's direction is 0." << endl; }
 }
 

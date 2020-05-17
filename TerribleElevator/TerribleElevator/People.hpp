@@ -1,8 +1,13 @@
-#pragma once
+#ifndef PEOPLE_HPP
+#define PEOPLE_HPP
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <array>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include "Globals.hpp"
 using namespace std;
 
 class People {
@@ -10,7 +15,6 @@ private:
     int initialFloor;        // current floor
     int goalFloor;           // destination floor
     int frustrationLevel;    // current frustration level
-    int frustrationCap;      // frustration capacity 
     int direction;           // going up = -1, going down = 1
     bool pressAll;           // manager needs to handle pressing all buttons
     int holdOpen;            // manager needs to handle seconds door is held open
@@ -29,3 +33,4 @@ public:
     friend class Manager;
 
 };
+#endif
