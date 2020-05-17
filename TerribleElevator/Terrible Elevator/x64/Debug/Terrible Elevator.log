@@ -1,12 +1,16 @@
 ﻿  ElevatorRender.cpp
-  Graphics.cpp
-C:\Users\lucas\Desktop\retardation\Terrible Elevator\Terrible Elevator\Graphics.cpp(65,14): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-C:\Users\lucas\Desktop\retardation\Terrible Elevator\Terrible Elevator\Graphics.cpp(66,13): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-C:\Users\lucas\Desktop\retardation\Terrible Elevator\Terrible Elevator\Graphics.cpp(67,15): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-C:\Users\lucas\Desktop\retardation\Terrible Elevator\Terrible Elevator\Graphics.cpp(68,16): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-  gui.cpp
-  main.cpp
-  Generating Code...
-C:\Users\lucas\Desktop\retardation\Terrible Elevator\Terrible Elevator\main.cpp(20): warning C4715: 'WindowProc': not all control paths return a value
-C:\Users\lucas\Desktop\retardation\Terrible Elevator\Terrible Elevator\gui.cpp(170): warning C4715: 'Gui::Check': not all control paths return a value
-  Terrible Elevator.vcxproj -> C:\Users\lucas\Desktop\retardation\Terrible Elevator\x64\Debug\Terrible Elevator.exe
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(111,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(110,12): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(119,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(118,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(124,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(123,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(130,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(129,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(135,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(134,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(141,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(146,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(151,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\ElevatorRender.cpp(156,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Terrible Elevator.vcxproj -> C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\x64\Debug\Terrible Elevator.exe
