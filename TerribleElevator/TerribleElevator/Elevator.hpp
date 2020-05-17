@@ -5,7 +5,7 @@
 #include <vector>
 #include <array>
 #include <string>
-#include "Manager.hpp"
+#include "People.hpp"
 using namespace std;
 
 class Elevator {

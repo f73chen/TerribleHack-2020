@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <array>
-#include "People.hpp"
 #include "Floor.hpp"
 
 using namespace std;

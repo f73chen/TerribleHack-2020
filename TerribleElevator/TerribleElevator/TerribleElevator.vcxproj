@@ -158,6 +158,7 @@
   <ItemGroup>
     <ClInclude Include="Elevator.hpp" />
     <ClInclude Include="Floor.hpp" />
+    <ClInclude Include="Globals.hpp" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Manager.hpp" />
     <ClInclude Include="People.hpp" />

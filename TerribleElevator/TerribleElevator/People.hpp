@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <array>
+#include "Globals.hpp"
 using namespace std;
 
 class People {

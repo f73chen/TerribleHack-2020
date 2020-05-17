@@ -4,9 +4,6 @@
 #include <array>
 #include <string>
 #include "Manager.hpp"
-#include "Elevator.hpp"
-#include "Floor.hpp"
-#include "People.hpp"
 using namespace std;
 
 // initialize the vector of people
