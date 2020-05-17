@@ -47,43 +47,38 @@ int Manager::run() {
 	// checks the actions of everyone in one elevator and sends it to the elevator
 	// each cycle is equal to 1 second
 	// new people are generated into peopleList, copied into floorList, then walks into elevatorList
-	// @@@@@@@@@@ADJUST NUMBERS SO TIMING IS MORE REALISTIC
 
 	// testing output to make sure people are put into their corresponding floor lists
-	/*for (Floor* eachFloor : floorList) {
+	for (Floor* eachFloor : floorList) {
 		cout << "Floor: " << eachFloor->floorNum << endl;
 		for (People* tempPerson : eachFloor->peopleList) {
 			cout << "Initial floor: " << tempPerson->initialFloor << ", goal floor: " << tempPerson->goalFloor << endl;
 		}
-	}*/
+	}
+
+	// int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, vector<People*> npeopleList
+	Elevator* tempNewEl = new Elevator(5, 4, -1, true, { false, false, false, false, false, false, false }, 2, {});
+	elevatorList[1] = tempNewEl;
 
 	int cycleCounter = 0;
 	for(int round = 0; round < 20; round++) { // USUALLY SET TO WHILE TRUE
 		cout << "Cycle " << cycleCounter << ": " << endl;
-		vector<int> numCalls = {0, 0}; // @@@@@@@@@@@SUM THE CALLS IN EACH ELEVATOR'S PATH THAT IT CAN ACT ON
+		vector<int> numCalls = {0, 0};
 		
 		cout << "Checking whether elevators are at a floor: " << endl;
-		// int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nstoppingDistance, vector<People*> npeopleList
-		// elevatorList[0] = new Elevator(1, 2, 1, true, { false, false, false, false, false, false, false }, 3, 1, {});
-		// @@@@@@@@ SHOULD BE ABLE TO MAKE CUSTOM CARS BY INPUTTING VALUES
-		// @@@@@@@ SHOULD BE ABLE TO CALCULATE NEXT SPEED > 0 IF INITIAL SPEED IS 0 BUT NOT AT DESTINATION
+		// @@@@@@@ TEST WHETHER FLOOR'S NUMUP AND NUMDOWN ARE CORRECT
 		for (int i = 0; i < ELEVATORS; i++) {
 			Elevator* tempElevator = elevatorList[i];
 			int currentFloor = tempElevator->floor;
-			if (tempElevator->floor == tempElevator->nextStop) { // arrived at next destination
+			if (currentFloor == tempElevator->nextStop) { // arrived at next destination
 				cout << "Elevator " << i << " has arrived at next destination floor " << currentFloor << endl;
 				elevatorArrived(tempElevator);
 			}
 			else { //if on route
-				cout << "Elevator " << i << " is travelling from floor " << currentFloor << " in direction " << tempElevator->direction << " at distance " << tempElevator->distanceToNextFloor << endl;
+				cout << "Elevator " << i << " is travelling from floor " << currentFloor << " in direction " << tempElevator->direction << " to destination " << tempElevator->nextStop << " at distance " << tempElevator->distanceToNextFloor << " and speed " << tempElevator->speed << endl;
 				tempElevator->distanceToNextFloor -= tempElevator->speed;
 				if (tempElevator->distanceToNextFloor <= 0) { // if moves by one floor in the next cycle
 					tempElevator->floor += tempElevator->direction; // set floor number to its next arrival
-					tempElevator->nextSpeed(numCalls[i]); // reset / calculate its next movement speed
-					cout << "Next speed is: " << tempElevator->speed << endl; // what the speed to the next floor is calculated for that car
-					// @@@@@@@ THERE SHOULD STILL BE SOME SPEED IF THE GAP IS 1 FLOOR (1-6, STUCK AT F5)
-					// @@@@@@@ NEXTSPEED SHOULDN'T BE NEGATIVE (1-3, SPEED 2)
-					// ######  USE A BOOLEAN INDICATOR FOR ARRIVING, TRY TO DO EVERYTHING IN SOME METHOD
 					tempElevator->distanceToNextFloor = DIST_BTW_FLOORS; // reset its distance to the next floor
 				}
 			}
@@ -91,6 +86,7 @@ int Manager::run() {
 
 		cycleCounter++;
 	}
+	cout << "Cycles completed. Total number of people in the building: " << peopleList.size() << endl;
 	return 0;
 }
 
@@ -101,37 +97,22 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 	cout << "Holding the elevator at floor " << currentFloor << endl;
 	tempElevator->canMove = false;
 
-	cout << "Changing speed to 0" << endl;
+	//cout << "Changing speed to 0" << endl;
 	tempElevator->speed = 0; // resting to let people out and in
 
-	cout << "Clearing elevator's internal button press for this floor" << endl;
+	//cout << "Clearing elevator's internal button press for this floor" << endl;
 	tempElevator->buttonsPressed[currentFloor - 1] = false;
 
-	cout << "Setting next random destination" << endl;
+	//cout << "Setting next random destination" << endl;
 	tempElevator->nextStop = rand() % FLOORS + 1; // set a random next stop somewhere in the building
 	while (tempElevator->nextStop == currentFloor) { // make sure destination is not its own floor
 		tempElevator->nextStop = rand() % FLOORS + 1;
 	}
-
-	cout << "Setting new speed and direction based on nextStop and call urgency" << endl;
-	int countPresses;
-	if (tempElevator->nextStop > currentFloor) {  // if it will be going up
-		tempElevator->direction = 1;
-		for (int j = currentFloor; j < FLOORS; j++) { // sum all calls from floors above
-			countPresses += floorList[j]->numUp + floorList[j]->numDown;
-		}
-	}
-	else { // if it will be going down
-		tempElevator->direction = -1;
-		for (int j = 0; j < currentFloor; j++) { // sum all calls from floors below
-			countPresses += floorList[j]->numUp + floorList[j]->numDown;
-		}
-	}
-	tempElevator->nextSpeed(countPresses); // set new speed based on how many times it's called
+	cout << "New destination: floor " << tempElevator->nextStop << endl;
 
 	// @@@@@@@SOMEHOW WAIT FOR DOORS TO OPEN
 
-	cout << "People get out of the elevator" << endl;
+	//cout << "People get out of the elevator" << endl;
 	vector<People*> remainingList = {}; // list of people remaining in the elevator after some exit
 	for (People* tempPerson : tempElevator->peopleList) {
 		if (tempPerson->goalFloor == currentFloor) { // if the person is to be removed, remove it from peopleList
@@ -149,27 +130,68 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 
 	// move people from the current floor into elevator until floor empty or elevator full
 	// then recalculate current capacity
-	cout << "People move from that floor's waitlist into the elevator regardless of direction" << endl;
-	cout << "Reduces direction calls accordingly and applies internal presses" << endl;
+	//cout << "People move from that floor's waitlist into the elevator regardless of direction" << endl;
+	//cout << "Reduces direction calls accordingly and applies internal presses" << endl;
 	vector<People*> tempWaitlist = floorList[tempElevator->floor - 1]->peopleList; // list of people waiting on that floor
 	while (tempWaitlist.size() > 0) { // while there are people waiting on that floor
-		while (tempElevator->numPeople < CAPACITY) { // while the elevator is not full
+		if (tempElevator->numPeople < CAPACITY) { // if the elevator is not full
 			tempElevator->peopleList.push_back(tempWaitlist[0]); // first person waiting walks into the elevator
 			tempElevator->numPeople++;
+			//cout << "Person moved into elevator" << endl;
 			// if someone that wanted to go up got in the elevator, reduce floor's up call
-			if (tempWaitlist[0]->goalFloor > tempWaitlist[0]->initialFloor) { floorList[tempElevator->floor - 1]->numUp--; }
-			else { floorList[tempElevator->floor - 1]->numDown--; }
+			if (tempWaitlist[0]->goalFloor > tempWaitlist[0]->initialFloor) { floorList[tempElevator->floor - 1]->numUp--; /*cout << "Up Pressed" << endl;*/ }
+			else { floorList[tempElevator->floor - 1]->numDown--; /*cout << "Down pressed" << endl;*/ }
 			// apply newcomer's internal button press
 			tempElevator->buttonsPressed[tempWaitlist[0]->goalFloor - 1] = true;
+			//cout << "Internal button press applied" << endl;
 			tempWaitlist.erase(tempWaitlist.begin()); // first person no longer waiting on that floor
+			//cout << "Person removed from floor" << endl;
+		}
+		else {
+			cout << "Elevator is full" << endl;
 		}
 	}
 	floorList[tempElevator->floor - 1]->peopleList = tempWaitlist; // reset the current waitlist
+	//cout << "Reset floor's waitlist" << endl;
 
 	// @@@@@@ SOMEHOW WAIT FOR DOORS TO CLOSE
 
-	cout << "Allowing the elevator to move again" << endl;
+	//cout << "Allowing the elevator to move again" << endl;
 	tempElevator->canMove = true;
+
+	//cout << "Setting new speed and direction based on nextStop and call urgency" << endl;
+	int countPresses = 0;
+	if (tempElevator->nextStop > currentFloor) {  // if it will be going up
+		tempElevator->direction = 1;
+		for (int j = currentFloor; j < FLOORS; j++) { // sum all calls from floors above
+			countPresses += floorList[j]->numUp + floorList[j]->numDown;
+		}
+	}
+	else { // if it will be going down
+		tempElevator->direction = -1;
+		for (int j = 0; j < currentFloor; j++) { // sum all calls from floors below
+			countPresses += floorList[j]->numUp + floorList[j]->numDown;
+		}
+	}
+	tempElevator->nextSpeed(countPresses); // set new speed based on how many times it's called
+	cout << "New speed is set to " << tempElevator->speed << endl;
+
+	tempElevator->distanceToNextFloor = DIST_BTW_FLOORS;
+	cout << "Reset distance to next floor" << endl;
+
+	cout << "\nPeople waiting on floor " << currentFloor << ": " << endl;
+	for (int m = 0; m < tempWaitlist.size(); m++) {
+		cout << "Person " << m << " on floor " << tempWaitlist[m]->initialFloor << " wants to go to floor " << tempWaitlist[m]->goalFloor << endl;
+	}
+	cout << "People in this elevator: " << endl;
+	for (int m = 0; m < tempElevator->peopleList.size(); m++) {
+		cout << "Person " << m << " on floor " << tempElevator->peopleList[m]->initialFloor << " wants to go to floor " << tempElevator->peopleList[m]->goalFloor << endl;
+	}
+	//cout << "Internal buttons pressed: " << endl;
+	for (int m = 0; m < FLOORS; m++) {
+		tempElevator->buttonsPressed[m] ? cout << "yes " : cout << "no ";
+	}
+	cout << endl;
 }
 
 // in-house tests of the contents of each list

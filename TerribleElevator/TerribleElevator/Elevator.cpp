@@ -36,7 +36,7 @@ bool Elevator::validMove() {
 // PURPOSE: checks current floor, direction, stopping distance and next floor to determine what speed it should travel at
 // NOTE: when arriving at the destination floor, speed should be less than accel (either 0 or accel/2)
 void Elevator::nextSpeed(int numCalls) {
-	if (!validMove()) { speed = 0; return; }	// not allowed to move
+	if (!validMove()) { speed = 0; cout << "Invalid move" << endl; return; }	// not allowed to move
 	int boost = numCalls / FLOORS;				// integer division of the total number of floors
-	int boostedSpeed = MAX_SPEED + boost;		// able to have a higher topspeed
+	speed = MAX_SPEED + boost;		// able to have a higher topspeed
 }
