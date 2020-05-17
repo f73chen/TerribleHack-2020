@@ -1,9 +1,9 @@
-#include "Elevator.h"
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <array>
 #include <string>
+#include "Elevator.h"
 using namespace std;
 
 // PURPOSE: checks the position, direction, buttons pressed, and nextStop to determine whether it moves at 

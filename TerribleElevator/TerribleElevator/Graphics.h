@@ -14,7 +14,7 @@ class Graphics {
 
 	ID2D1HwndRenderTarget* renderTarget;
 	ID2D1SolidColorBrush* brush;
-	
+
 public:
 	Graphics();
 	~Graphics();
@@ -28,7 +28,7 @@ public:
 		renderTarget->EndDraw();
 	}
 	void ClearScreen(float r, float g, float b);
-	
+
 	void DrawCircle(float x, float y, float radius, float r, float g, float b, float a);
 	void DrawRectangle(float w, float x, float y, float z, float r, float g, float b, float a);
 	void FillRectangle(float w, float x, float y, float z, float r, float g, float b, float a);

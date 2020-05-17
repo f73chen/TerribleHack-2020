@@ -12,7 +12,7 @@ People::People() {
     goalFloor = rand() % 10 + 1;                        // random floor between 1-10 inclusive
     frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
     frustrationCap = 5;                                 // max frustration is 5
-    direction = goalFloor - initialFloor < 0? -1 : 1;   // -1 if going down, 1 if going up
+    direction = goalFloor - initialFloor < 0 ? -1 : 1;   // -1 if going down, 1 if going up
     pressAll = false;                                   // whether the person is evil and presses all buttons
     holdOpen = 0;                                       // whether the person holds open the door
 }
@@ -21,21 +21,21 @@ People::People(int initialFloor) {
     goalFloor = rand() % 10 + 1;                        // random floor between 1-10 inclusive
     frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
     frustrationCap = 5;                                 // max frustration is 5
-    direction = goalFloor - initialFloor < 0? -1 : 1;   // -1 if going down, 1 if going up
+    direction = goalFloor - initialFloor < 0 ? -1 : 1;   // -1 if going down, 1 if going up
     pressAll = false;                                   // whether the person is evil and presses all buttons
     holdOpen = 0;                                       // whether the person holds open the door
 }
 
 // methods
-int People::get_goal_floor() {return goalFloor;}
+int People::get_goal_floor() { return goalFloor; }
 
-int People::get_frustration_level() {return frustrationLevel;}
+int People::get_frustration_level() { return frustrationLevel; }
 
-int People::get_direction() {return direction;}
+int People::get_direction() { return direction; }
 
-void People::set_frustration_level(int level) {frustrationLevel = level;}
+void People::set_frustration_level(int level) { frustrationLevel = level; }
 
-void People::new_floor() {goalFloor = rand() % 10 + 1;}
+void People::new_floor() { goalFloor = rand() % 10 + 1; }
 
 void People::be_rude() {
     int level = get_frustration_level();

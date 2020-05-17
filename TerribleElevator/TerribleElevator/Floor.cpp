@@ -25,8 +25,8 @@ int Floor::press_down() {
 int Floor::get_num_people() { return totalPeople; }
 
 void Floor::addPerson(People person) {
-    if(person.get_direction < 0) numPeopleDown++;
-    else if(person.get_direction > 0) numPeopleUp++;
+    if (person.get_direction < 0) numPeopleDown++;
+    else if (person.get_direction > 0) numPeopleUp++;
     else { cout << "Error: new person's direction is 0." << endl; }
 }
 

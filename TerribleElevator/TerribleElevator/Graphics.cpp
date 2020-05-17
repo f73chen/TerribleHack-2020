@@ -20,9 +20,9 @@ bool Graphics::Init(HWND windowHandle) {
 	GetClientRect(windowHandle, &rect);
 
 	res = factory->CreateHwndRenderTarget(
-		D2D1::RenderTargetProperties(), 
+		D2D1::RenderTargetProperties(),
 		D2D1::HwndRenderTargetProperties(
-			windowHandle, D2D1::SizeU(rect.right, rect.bottom)), 
+			windowHandle, D2D1::SizeU(rect.right, rect.bottom)),
 		&renderTarget);
 
 	if (res != S_OK) return false;

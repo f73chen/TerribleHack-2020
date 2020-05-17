@@ -16,7 +16,7 @@ int FLOORS = 7;			// total number of floors in the building
 int PEOPLE = 10;		// total number of NPC people
 int ELEVATORS = 2;		// total number of elevators
 
-class Manager{
+class Manager {
 private:
 	vector<People*> peopleList;		// list of all people objects
 	vector<Floor*> floorList;		// list of floor objects 

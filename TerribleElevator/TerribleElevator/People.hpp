@@ -7,7 +7,7 @@ using namespace std;
 
 class People {
 private:
-	int initialFloor;        // current floor
+    int initialFloor;        // current floor
     int goalFloor;           // destination floor
     int frustrationLevel;    // current frustration level
     int frustrationCap;      // frustration capacity 
@@ -15,9 +15,9 @@ private:
     bool pressAll;           // manager needs to handle pressing all buttons
     int holdOpen;            // manager needs to handle seconds door is held open
 public:
-	// constructors
+    // constructors
     People();
-	People(int initialFloor);
+    People(int initialFloor);
     // methods
     int get_goal_floor();                     // returns goal floor
     int get_frustration_level();              // returns frustration level

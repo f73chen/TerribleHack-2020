@@ -5,15 +5,16 @@
 #include "Floor.hpp"
 #include "Elevator.h"
 #include "People.hpp"
+#include "Graphics.h"
 
-Graphics* graphics; 
+Graphics* graphics;
 LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {
-	if(uMsg == WM_DESTROY) {
+	if (uMsg == WM_DESTROY) {
 		PostQuitMessage(0);
 		return 0;
 	}
 
-	if(uMsg == WM_PAINT) {
+	if (uMsg == WM_PAINT) {
 		graphics->BeginDraw();
 
 		graphics->ClearScreen(0.0f, 0.0f, 0.5f);
@@ -21,7 +22,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 		// Draw menu wrap
 		graphics->DrawRectangle(
 			290, 600, // top left x, y
-			990,120, // bottom right x, y
+			990, 120, // bottom right x, y
 			0.5f,
 			0.5f,
 			0.5f,
@@ -53,7 +54,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 
 		// Draw floor buttons
 		graphics->DrawCircle( // Floor 7
-			325+420+105, 360+60,// x,y
+			325 + 420 + 105, 360 + 60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
@@ -61,7 +62,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 			0.5f
 		);
 		graphics->DrawCircle( // Floor 6
-			325+210+105, 360+60,// x,y
+			325 + 210 + 105, 360 + 60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
@@ -69,7 +70,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 			0.5f
 		);
 		graphics->DrawCircle( // Floor 5
-			325+105, 360+60,// x,y
+			325 + 105, 360 + 60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
@@ -77,7 +78,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 			0.5f
 		);
 		graphics->DrawCircle( // Floor 4
-			290+525+(175/2), 240+60,// x,y
+			290 + 525 + (175 / 2), 240 + 60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
@@ -85,7 +86,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 			0.5f
 		);
 		graphics->DrawCircle( // Floor 3
-			290+350+(175/2), 240+60,// x,y
+			290 + 350 + (175 / 2), 240 + 60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
@@ -93,7 +94,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 			0.5f
 		);
 		graphics->DrawCircle( // Floor 2
-			290+175+(175/2), 240+60,// x,y
+			290 + 175 + (175 / 2), 240 + 60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
@@ -101,7 +102,7 @@ LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, 
 			0.5f
 		);
 		graphics->DrawCircle( // Floor 1
-			290+(175/2), 240+60,// x,y
+			290 + (175 / 2), 240 + 60,// x,y
 			30, // radius
 			0.5f,
 			0.5f,
@@ -135,14 +136,14 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	RECT rect = { 0, 0, 1280, 720 };
 	AdjustWindowRectEx(&rect, WS_OVERLAPPEDWINDOW, false, WS_EX_OVERLAPPEDWINDOW);
 
-	HWND windowHandle = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MainWindow", L"TerribleElevator", WS_OVERLAPPEDWINDOW, 100, 100, 
+	HWND windowHandle = CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MainWindow", L"TerribleElevator", WS_OVERLAPPEDWINDOW, 100, 100,
 		rect.right - rect.left, rect.bottom - rect.top, NULL, NULL, hInstance, 0);
 
 	if (!windowHandle) return -1;
 
 	graphics = new Graphics();
 
-	if(!graphics->Init(windowHandle)) {
+	if (!graphics->Init(windowHandle)) {
 		delete graphics;
 		return -1;
 	}
@@ -153,6 +154,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 	while (GetMessage(&message, NULL, 0, 0)) {
 		DispatchMessage(&message);
 	}
-		
+
 	return 0;
 }

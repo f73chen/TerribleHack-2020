@@ -23,13 +23,13 @@ private:
 public:
 	// default constructor
 	Elevator() :floor(1), speed(0), direction(0), canMove(false), buttonsPressed({ false }), nextStop(1), FLOORS(1), CAPACITY(0), numPeople(0), stoppingDistance(1), MAX_SPEED(0) {}
-	
+
 	// constructor with parameters
-	Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, 
-		int nnextStop, int nFLOORS, int nCAPACITY, int nnumPeople, 
+	Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed,
+		int nnextStop, int nFLOORS, int nCAPACITY, int nnumPeople,
 		int nstoppingDistance, int nMAX_SPEED) :
-		floor(nfloor), speed(nspeed), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed), 
-		nextStop(nnextStop), FLOORS(nFLOORS), CAPACITY(nCAPACITY), numPeople(nnumPeople), 
+		floor(nfloor), speed(nspeed), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed),
+		nextStop(nnextStop), FLOORS(nFLOORS), CAPACITY(nCAPACITY), numPeople(nnumPeople),
 		stoppingDistance(nstoppingDistance), MAX_SPEED(nMAX_SPEED) {}
 
 	// returns whether adding more people would not overload it
