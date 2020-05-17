@@ -22,6 +22,8 @@ User::User() {
 }
 
 // methods
+int User::getCurrentFloor() { return initialFloor; }
+
 int User::get_goal_floor() { return goalFloor; }
 
 void User::setGoalFloor(int floor) { goalFloor = floor; }

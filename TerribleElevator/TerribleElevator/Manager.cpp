@@ -145,6 +145,7 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 		if (tempPerson->goalFloor == currentFloor) { // if the person is to be removed, remove it from peopleList
 			if (tempPerson->id == 1) { // if the person to exit the elevator is the user rep, DON'T remove from elevator
 				cout << "User has reached destination floor, please choose new destination" << endl;
+				tempPerson->initialFloor = currentFloor; // user now starts from current floor
 				// @@@@@@ MAKE USER CHOOSE A NEW GOAL FLOOR THAT IS NOT THE CURRENT
 				remainingList.push_back(tempPerson); // add them to the list of people that remain
 			}
