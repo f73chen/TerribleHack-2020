@@ -1,12 +1,10 @@
 ﻿  Manager.cpp
 C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(31,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(218,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(222,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(256,35): warning C4244: 'argument': conversion from 'int' to 'const _Ty', possible loss of data
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(234,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(238,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(272,35): warning C4244: 'argument': conversion from 'int' to 'const _Ty', possible loss of data
           with
           [
               _Ty=float
           ]
-  TerribleElevator.cpp
-  Generating Code...
   TerribleElevator.vcxproj -> C:\Users\User\source\repos\TerribleHack\TerribleElevator\Debug\TerribleElevator.exe
