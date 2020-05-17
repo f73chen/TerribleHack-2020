@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 #include "User.hpp"
 
 using namespace std;
@@ -16,17 +17,15 @@ using namespace std;
 User::User() {
     initialFloor = 1;   // default floor is 1
     goalFloor = 1;      // after listerner detects button clicked in ui, chooseFloor is called to change goalFloor
-    direction = goalFloor - initialFloor < 0 ? -1 : 1;  // -1 if going down, 1 if going up
-    holdOpen = false;
+    holdOpen = 0;       // not holding open doors
+    id = 1;             // sets this user apart from other people objects
 }
 
 // methods
 int User::get_goal_floor() { return goalFloor; }
 
-int User::get_direction() { return direction; }
+void User::setGoalFloor(int floor) { goalFloor = floor; }
 
-void User::chooseFloor(int floor) { goalFloor = floor; }
-
-void User::doorOpen() { holdOpen = true; }
+void User::doorOpen() { holdOpen++; }
 
 

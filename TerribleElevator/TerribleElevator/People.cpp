@@ -12,40 +12,25 @@ using namespace std;
 
 // contructors
 People::People() {
-    initialFloor = rand() % FLOORS + 1;                 // default floor is 1
-    goalFloor = rand() % FLOORS + 1;                    // random floor between 1-FLOORS inclusive
-    while (goalFloor == initialFloor) {                 // generate again until goal is different from initial
+    initialFloor = rand() % FLOORS + 1;     // default floor is 1
+    goalFloor = rand() % FLOORS + 1;        // random floor between 1-FLOORS inclusive
+    while (goalFloor == initialFloor) {     // generate again until goal is different from initial
         goalFloor = rand() % FLOORS + 1;
     }
-    frustrationLevel = rand() % 6;                      // random frustration level between 0-5 inclusive
-    pressAll = false;                                   // whether the person is evil and presses all buttons
-    holdOpen = 0;                                       // whether the person holds open the door
+    holdOpen = 0;
+    id = 0;                                 // the default value for NPC
 }
 People::People(int ninitialFloor) {
-    initialFloor = ninitialFloor;                       // initial floor set to whatever is passed in
-    goalFloor = rand() % FLOORS + 1;                    // random floor between 1-FLOORS inclusive
-    while (goalFloor == initialFloor) {                 // generate again until goal is different from initial
+    initialFloor = ninitialFloor;           // initial floor set to whatever is passed in
+    goalFloor = rand() % FLOORS + 1;        // random floor between 1-FLOORS inclusive
+    while (goalFloor == initialFloor) {     // generate again until goal is different from initial
         goalFloor = rand() % FLOORS + 1;
     }
-    frustrationLevel = rand() % 6;                      // random frustration level between 0-5 inclusive
-    pressAll = false;                                   // whether the person is evil and presses all buttons
-    holdOpen = 0;                                       // whether the person holds open the door
+    holdOpen = 0;
+    id = 0;                                 // the default value for NPCs
 }
 
-// methods
-int People::get_goal_floor() { return goalFloor; }
-
-int People::get_frustration_level() { return frustrationLevel; }
-
-void People::set_frustration_level(int level) { frustrationLevel = level; }
-
-void People::new_floor() { goalFloor = rand() % 10 + 1; }
-
-void People::be_rude() {
-    int level = get_frustration_level();
-    if (frustrationLevel > 3) {
-        pressAll = true;        // becomes evil
-        frustrationLevel = 0;   // cathartic
-    }
-    // presses floor buttons so that it stops on every floor (Elevator class)
+// assigns this person a new goal floor. Only used to represent user
+void People::setGoalFloor(int goal) {
+    goalFloor = goal;
 }

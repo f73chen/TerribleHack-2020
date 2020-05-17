@@ -13,23 +13,19 @@ using namespace std;
 
 class People {
 private:
-    int initialFloor;        // current floor
-    int goalFloor;           // destination floor
-    int frustrationLevel;    // current frustration level
-    bool pressAll;           // manager needs to handle pressing all buttons
-    int holdOpen;            // manager needs to handle seconds door is held open
+    int initialFloor;       // current floor
+    int goalFloor;          // destination floor
+    int holdOpen = 0;       // proxy for the user to hold door open
+    int id;                 // used to differentiate NPC from user: will make a people object to represent the person
 public:
     // constructors
     People();
     People(int initialFloor);
-    // methods
-    int get_goal_floor();                     // returns goal floor
-    int get_frustration_level();              // returns frustration level
-    void set_frustration_level(int level);    // sets frustration level to passed parameter
-    void new_floor();                         // sets new goal floor to random floor
-    void be_rude();                           // person does something rude based on frustration level
-    // friends
-    friend class Manager;
 
+    // assigns this person a new goal floor, can be used to reset the person representing user
+    void setGoalFloor(int goal);
+
+    friend class Manager;
+    friend class User;
 };
 #endif

@@ -29,7 +29,7 @@ void Manager::initElevators() {
 // NOTE: must be run after floors are generated, preferably elevators too
 void Manager::initPeople() {
 	srand(time(0)); // seeds the random number generator for the people objects
-	for (int i = 0; i < PEOPLE; i++) {
+	for (int i = 0; i < PEOPLE-1; i++) { // leave one spot for the user
 		People* tempPerson = new People();		// this way, peopleList adds a pointer to a heap item
 		peopleList.push_back(tempPerson);		// adds a new default person
 		floorList[tempPerson->initialFloor-1]->peopleList.push_back(tempPerson); // add the person to their starting floor
@@ -40,6 +40,12 @@ void Manager::initPeople() {
 			floorList[tempPerson->initialFloor - 1]->numDown++; // new person request to go down
 		}
 	}
+	People* userPerson = new People();
+	userPerson->id = 1; // make this People unique from the others
+	// @@@@@@@ SET USERPERSON'S GOALFLOOR TO WHATEVER USER CHOOSES IN THE BUTTON
+	peopleList.push_back(userPerson);
+	floorList[0]->peopleList.push_back(userPerson); // user always starts on floor 1
+	floorList[0]->numUp++; // goal floor must be higher than 1, so user always presses up
 }
 
 // the main program cycle, returns integer error codes
@@ -72,13 +78,20 @@ int Manager::run() {
 			if (doorHoldTime[i] > 0) { // count down by one and ignore all activities
 				cout << "Elevator " << i << " has countdown of " << doorHoldTime[i] << " seconds" << endl;
 				doorHoldTime[i]--; 
+				// if userPerson chooses to hold, must be added to the time, can only hold if elevator already has a count down
+				for (People* person : tempElevator->peopleList) {
+					if (person->id == 1 && person->holdOpen > 0) { // if user has applied hold to the car
+						doorHoldTime[i] += person->holdOpen; // transfer the holdOpen to the elevator & delay it
+						person->holdOpen = 0;
+					}
+				}
 			}
 			else { // if not being held
 				int currentFloor = tempElevator->floor;
 				if (currentFloor == tempElevator->nextStop) { // arrived at next destination
 					cout << "Elevator " << i << " arrived at floor " << currentFloor << endl;
 					elevatorArrived(tempElevator); 
-					doorHoldTime[i] = DOOR_HOLD; // reset doorHoldTime counter
+					doorHoldTime[i] = DOOR_HOLD; // reset doorHoldTime counter to simulate opening and closing
 				}
 				else { //if on route
 					//cout << "Elevator " << i << " from " << currentFloor << " direction " << tempElevator->direction << " destination " << tempElevator->nextStop << " distance " << tempElevator->distanceToNextFloor << " speed " << tempElevator->speed << endl;
@@ -129,10 +142,17 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 	vector<People*> remainingList = {}; // list of people remaining in the elevator after some exit
 	for (People* tempPerson : tempElevator->peopleList) {
 		if (tempPerson->goalFloor == currentFloor) { // if the person is to be removed, remove it from peopleList
-			auto index = find(peopleList.begin(), peopleList.end(), tempPerson);
-			if (index!=peopleList.end()) { // if tempPerson is indeed found in peopleList
-				swap(*index, peopleList.back()); // swaps target element with last
-				peopleList.pop_back(); // remove target element from list
+			if (tempPerson->id == 1) { // if the person to exit the elevator is the user rep, DON'T remove from elevator
+				cout << "User has reached destination floor, please choose new destination" << endl;
+				// @@@@@@ MAKE USER CHOOSE A NEW GOAL FLOOR THAT IS NOT THE CURRENT
+				remainingList.push_back(tempPerson); // add them to the list of people that remain
+			}
+			else { // if the person is not the user, then just remove them and generate a new one
+				auto index = find(peopleList.begin(), peopleList.end(), tempPerson);
+				if (index != peopleList.end()) { // if tempPerson is indeed found in peopleList
+					swap(*index, peopleList.back()); // swaps target element with last
+					peopleList.pop_back(); // remove target element from list
+				}
 			}
 		}
 		else { remainingList.push_back(tempPerson); } // else the person is not to be removed

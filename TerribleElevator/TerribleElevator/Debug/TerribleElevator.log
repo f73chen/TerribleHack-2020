@@ -1,10 +1,17 @@
-﻿  Manager.cpp
+﻿  Elevator.cpp
+  Floor.cpp
+  Manager.cpp
 C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(31,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(195,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(199,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(203,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(237,35): warning C4244: 'argument': conversion from 'int' to 'const _Ty', possible loss of data
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(233,35): warning C4244: 'argument': conversion from 'int' to 'const _Ty', possible loss of data
           with
           [
               _Ty=float
           ]
+  People.cpp
+  TerribleElevator.cpp
+  User.cpp
+  Generating Code...
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(36): warning C4715: 'Elevator::validMove': not all control paths return a value
   TerribleElevator.vcxproj -> C:\Users\User\source\repos\TerribleHack\TerribleElevator\Debug\TerribleElevator.exe

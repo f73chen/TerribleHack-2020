@@ -33,6 +33,9 @@ bool Elevator::validMove() {
 
 	// if already at the bottom floor and going down
 	if (floor == 0 && direction < 0) { cout << "At ground" << endl; return false; }
+	
+	// if all goes well and move is valid
+	return true;
 }
 
 // PURPOSE: checks current floor, direction, stopping distance and next floor to determine what speed it should travel at
