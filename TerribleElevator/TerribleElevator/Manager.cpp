@@ -134,16 +134,23 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 	cout << "People get out of the elevator" << endl;
 	vector<People*> remainingList = {}; // list of people remaining in the elevator after some exit
 	for (People* tempPerson : tempElevator->peopleList) {
-		if (tempPerson->goalFloor != currentFloor) { remainingList.push_back(tempPerson); }
+		if (tempPerson->goalFloor == currentFloor) { // if the person is to be removed, remove it from peopleList
+			auto index = find(peopleList.begin(), peopleList.end(), tempPerson);
+			if (index!=peopleList.end()) { // if tempPerson is indeed found in peopleList
+				swap(*index, peopleList.back()); // swaps target element with last
+				peopleList.pop_back(); // remove target element from list
+			}
+		}
+		else { remainingList.push_back(tempPerson); } // else the person is not to be removed
 	}
-	tempElevator->peopleList = remainingList;
+	tempElevator->peopleList = remainingList; // recalibrate the list
 	generateNewRiders(tempElevator->numPeople - remainingList.size()); // generate new people in the building based on the number that left
 	tempElevator->numPeople = remainingList.size(); // recalculate current capacity
 
 	// move people from the current floor into elevator until floor empty or elevator full
 	// then recalculate current capacity
 	cout << "People move from that floor's waitlist into the elevator regardless of direction" << endl;
-	cout << "and reducing direction calls accordingly" << endl;
+	cout << "Reduces direction calls accordingly and applies internal presses" << endl;
 	vector<People*> tempWaitlist = floorList[tempElevator->floor - 1]->peopleList; // list of people waiting on that floor
 	while (tempWaitlist.size() > 0) { // while there are people waiting on that floor
 		while (tempElevator->numPeople < CAPACITY) { // while the elevator is not full
@@ -193,4 +200,19 @@ vector<float> Manager::getElevatorFloorNums() {
 		floorNums.push_back(tempElevator->floor);
 	}
 	return floorNums;
+}
+
+// generate new people in the building based on the number that left the elevator
+void Manager::generateNewRiders(int num) {
+	for (int i = 0; i < num; i++) {
+		People* tempPerson = new People();		// this way, peopleList adds a pointer to a heap item
+		peopleList.push_back(tempPerson);		// adds a new default person
+		floorList[tempPerson->initialFloor - 1]->peopleList.push_back(tempPerson); // add the person to their starting floor
+		if (tempPerson->goalFloor > tempPerson->initialFloor) {
+			floorList[tempPerson->initialFloor - 1]->numUp++; // if new person request to go up
+		}
+		else {
+			floorList[tempPerson->initialFloor - 1]->numDown++; // if new person request to go down
+		}
+	}
 }

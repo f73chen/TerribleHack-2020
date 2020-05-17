@@ -46,9 +46,6 @@ public:
 	// INPUT: numCalls is the number of times the people waiting have pressed the up/down buttons
 	int nextSpeed(int numCalls);
 
-	// PURPOSE: add a list of buttons that the newly added people will press
-	void pressButton(vector<int> floorNums);
-
 	// PURPOSE: arrived at a certain floor, have to clear info about button
 	void arrive();
 

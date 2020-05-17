@@ -41,5 +41,8 @@ public:
 
 	// returns a vector containing the current position of all elevators
 	vector<float> getElevatorFloorNums();
+
+	// generate new people in the building based on the number that left
+	void generateNewRiders(int num);
 };
 #endif
