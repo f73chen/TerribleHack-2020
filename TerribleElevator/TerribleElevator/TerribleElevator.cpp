@@ -10,5 +10,6 @@ using namespace std;
 int main(){
     cout << "Hello World!\n";
     Manager* tempManager = new Manager();
-    tempManager->test();
+    //tempManager->test();
+    tempManager->run();
 }

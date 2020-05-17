@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <array>
+#include <string>
 #include "People.hpp"
 using namespace std;
 

@@ -6,6 +6,14 @@
 #include "Elevator.hpp"
 using namespace std;
 
+// default constructor
+Elevator::Elevator() :floor(1), speed(0), direction(0), canMove(false), buttonsPressed({ false }), nextStop(1), numPeople(0), stoppingDistance(1) {}
+
+// parameterized constructor
+Elevator::Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nnumPeople, int nstoppingDistance) :
+	floor(nfloor), speed(nspeed), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed),
+	nextStop(nnextStop), numPeople(nnumPeople), stoppingDistance(nstoppingDistance) {}
+
 // PURPOSE: checks the position, direction, buttons pressed, and nextStop to determine whether it moves at 
 // INPUT: nnextStop given by the manager, tells where the next stop along the path someone pressed a button
 void Elevator::move(int numCalls) {

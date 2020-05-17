@@ -21,12 +21,10 @@ private:
 
 public:
 	// default constructor
-	Elevator() :floor(1), speed(0), direction(0), canMove(false), buttonsPressed({ false }), nextStop(1), numPeople(0), stoppingDistance(1) {}
+	Elevator();
 
 	// constructor with parameters
-	Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nnumPeople, int nstoppingDistance) :
-		floor(nfloor), speed(nspeed), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed),
-		nextStop(nnextStop), numPeople(nnumPeople), stoppingDistance(nstoppingDistance) {}
+	Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nnumPeople, int nstoppingDistance);
 
 	// returns whether adding more people would not overload it
 	bool withinCapacity(int additional) { return numPeople + additional <= CAPACITY; }
@@ -56,5 +54,7 @@ public:
 
 	// PURPOSE: arrived at a certain floor, have to clear info about button
 	void arrive();
+
+	friend class Manager;	// Manager will be able to access private variables
 };
 #endif

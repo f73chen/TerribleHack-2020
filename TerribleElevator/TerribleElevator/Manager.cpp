@@ -65,5 +65,5 @@ void Manager::test() {
 	initElevators();
 	for (int i = 0; i < ELEVATORS; i++) { cout << "Elevator location: " << elevatorList[i]->floor<< endl; }
 	
-	//run();
+	run();
 }
