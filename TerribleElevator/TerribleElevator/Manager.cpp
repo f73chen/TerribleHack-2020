@@ -60,25 +60,33 @@ int Manager::run() {
 	// int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, vector<People*> npeopleList
 	Elevator* tempNewEl = new Elevator(5, 6, -1, true, { false, false, false, false, false, false, false }, 2, {});
 	elevatorList[1] = tempNewEl;
+	vector<int> doorHoldTime(ELEVATORS, 0); // if the elevator is being held for its door
 
-	for(int round = 0; round < 20; round++) { // USUALLY SET TO WHILE TRUE
+	for(int round = 0; round < 20; round++) { // USUALLY SET TO WHILE TRUE INSTEAD OF A FOR LOOP
 		cout << endl << "Cycle " << round << ": " << endl;
 		vector<int> numCalls = {0, 0};
 		
 		//cout << "Checking whether elevators are at a floor: " << endl;
-		for (int i = 0; i < ELEVATORS; i++) {
+		for (int i = 0; i < ELEVATORS; i++) { // for each elevator in operation
 			Elevator* tempElevator = elevatorList[i];
-			int currentFloor = tempElevator->floor;
-			if (currentFloor == tempElevator->nextStop) { // arrived at next destination
-				cout << "Elevator " << i << " arrived at floor " << currentFloor << endl;
-				elevatorArrived(tempElevator);
+			if (doorHoldTime[i] > 0) { // count down by one and ignore all activities
+				cout << "Elevator " << i << " has countdown of " << doorHoldTime[i] << " seconds" << endl;
+				doorHoldTime[i]--; 
 			}
-			else { //if on route
-				//cout << "Elevator " << i << " from " << currentFloor << " direction " << tempElevator->direction << " destination " << tempElevator->nextStop << " distance " << tempElevator->distanceToNextFloor << " speed " << tempElevator->speed << endl;
-				tempElevator->distanceToNextFloor -= tempElevator->speed;
-				if (tempElevator->distanceToNextFloor <= 0) { // if moves by one floor in the next cycle
-					tempElevator->floor += tempElevator->direction; // set floor number to its next arrival
-					tempElevator->distanceToNextFloor = DIST_BTW_FLOORS; // reset its distance to the next floor
+			else { // if not being held
+				int currentFloor = tempElevator->floor;
+				if (currentFloor == tempElevator->nextStop) { // arrived at next destination
+					cout << "Elevator " << i << " arrived at floor " << currentFloor << endl;
+					elevatorArrived(tempElevator); 
+					doorHoldTime[i] = DOOR_HOLD; // reset doorHoldTime counter
+				}
+				else { //if on route
+					//cout << "Elevator " << i << " from " << currentFloor << " direction " << tempElevator->direction << " destination " << tempElevator->nextStop << " distance " << tempElevator->distanceToNextFloor << " speed " << tempElevator->speed << endl;
+					tempElevator->distanceToNextFloor -= tempElevator->speed;
+					if (tempElevator->distanceToNextFloor <= 0) { // if moves by one floor in the next cycle
+						tempElevator->floor += tempElevator->direction; // set floor number to its next arrival
+						tempElevator->distanceToNextFloor = DIST_BTW_FLOORS; // reset its distance to the next floor
+					}
 				}
 			}
 		}
@@ -116,8 +124,6 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 		tempElevator->nextStop = rand() % FLOORS + 1;
 	}
 	cout << "New destination " << tempElevator->nextStop << endl;
-
-	// @@@@@@@SOMEHOW WAIT FOR DOORS TO OPEN
 
 	//cout << "People get out of the elevator" << endl;
 	vector<People*> remainingList = {}; // list of people remaining in the elevator after some exit
@@ -161,8 +167,6 @@ void Manager::elevatorArrived(Elevator* tempElevator) {
 	}
 	floorList[tempElevator->floor - 1]->peopleList = tempWaitlist; // reset the current waitlist
 	//cout << "Reset floor's waitlist" << endl;
-
-	// @@@@@@ SOMEHOW WAIT FOR DOORS TO CLOSE
 
 	//cout << "Allowing the elevator to move again" << endl;
 	tempElevator->canMove = true;
