@@ -49,6 +49,7 @@ int Manager::run() {
 	/*while (true) {
 
 	}*/
+	return 0;
 }
 
 void Manager::test() {
