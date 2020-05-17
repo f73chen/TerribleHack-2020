@@ -22,7 +22,8 @@ public:
     // methods
     int get_goal_floor();           // returns goal floor
     int get_direction();            // returns direction of person
-    int chooseFloor();              // user button to go to a floor
+    void chooseFloor(int floor);    // user button to go to a floor
+    void doorOpen();                // method to set holdOpen to true
     // friends
     friend class Manager;
 
