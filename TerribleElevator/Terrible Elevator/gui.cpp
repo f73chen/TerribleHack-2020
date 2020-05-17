@@ -169,35 +169,80 @@ void Gui::Render(Graphics* gfx, HWND hwnd, int currFloor) {
 	);
 }
 
-bool Gui::Check(int x, int y) {
+bool Gui::Check(int x, int y, Graphics* gfx) {
 	if (x >= 1025 / 2 && x <= 1185 / 2 && y >= 500 && y <= 580) {
 		OutputDebugString(L"Open Button");
+		gfx->DrawRectangle( // Open button
+			290 + 175 + (175 / 2) - 40, 100 + 360 + 40, // top left x,y
+			290 + 175 + (175 / 2) + 40, 100 + 360 + 120, // bottom right x, y
+			0.0f, 0.0f, 1.0f, 0.8f
+		);
 		return true;
 	}
 	else if (x >= 1375/2 && x <= 1535/2 && y >= 500 && y <= 580) {
 		OutputDebugString(L"Close Button");
+		gfx->DrawRectangle( // Close button
+			290 + 350 + (175 / 2) - 40, 100 + 360 + 40, // top left x,y
+			290 + 350 + (175 / 2) + 40, 100 + 360 + 120, // bottom right x, y
+			0.0f, 0.0f, 1.0f, 0.8f
+		);
 		return true;
 	}
 	else if (pow((x - 377.5), 2) + pow((y - 420.0), 2) <= pow(40,2)) {
 		OutputDebugString(L"Level 1");
+		gfx->DrawCircle( // Floor 1
+			290 + (175 / 2), 120 + 240 + 60, // x, y
+			40, // radius
+			1.0f, 0.0f, 0.0f, 0.8f
+		);
 	}
 	else if (pow((x - 552.5), 2) + pow((y - 420.0), 2) <= pow(40, 2)) {
 		OutputDebugString(L"Level 2");
+		gfx->DrawCircle( // Floor 2
+			290 + 175 + (175 / 2), 120 + 240 + 60, // x, y
+			40, // radius
+			1.0f, 0.0f, 0.0f, 0.8f
+		);
 	}
 	else if (pow((x - 727.5), 2) + pow((y - 420.0), 2) <= pow(40, 2)) {
 		OutputDebugString(L"Level 3");
+		gfx->DrawCircle( // Floor 3
+			290 + 350 + (175 / 2), 120 + 240 + 60, // x, y
+			40, // radius
+			1.0f, 0.0f, 0.0f, 0.8f
+		);
 	}
 	else if (pow((x - 902.5), 2) + pow((y - 420.0), 2) <= pow(40, 2)) {
 		OutputDebugString(L"Level 4");
+		gfx->DrawCircle( // Floor 4
+			290 + 525 + (175 / 2), 120 + 240 + 60, // x, y
+			40, // radius
+			1.0f, 0.0f, 0.0f, 0.8f
+		);
 	}
 	else if (pow((x - 430.0), 2) + pow((y - 300.0), 2) <= pow(40, 2)) {
 		OutputDebugString(L"Level 5");
+		gfx->DrawCircle( // Floor 5
+			325 + 105, 120 + 120 + 60, // x, y
+			40, // radius
+			1.0f, 0.0f, 0.0f, 0.8f
+		);
 	}
 	else if (pow((x - 640.0), 2) + pow((y - 300.0), 2) <= pow(40, 2)) {
 		OutputDebugString(L"Level 6");
+		gfx->DrawCircle( // Floor 6
+			325 + 210 + 105, 120 + 120 + 60, // x, y
+			40, // radius
+			1.0f, 0.0f, 0.0f, 0.8f
+		);
 	}
 	else if (pow((x - 850.0), 2) + pow((y - 300.0), 2) <= pow(40, 2)) {
 		OutputDebugString(L"Level 7");
+		gfx->DrawCircle( // Floor 7
+			325 + 420 + 105, 120 + 120 + 60, // x, y
+			40, // radius
+			1.0f, 0.0f, 0.0f, 0.8f
+		);
 	}
 	else {
 		return false;
