@@ -1,9 +1,4 @@
-﻿  Elevator.cpp
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(106,20): warning C4018: '<': signed/unsigned mismatch
-  Floor.cpp
-  Manager.cpp
-  People.cpp
-  TerribleElevator.cpp
-  Generating Code...
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(32): warning C4715: 'Elevator::validMove': not all control paths return a value
-  TerribleElevator.vcxproj -> C:\Users\User\source\repos\TerribleHack\TerribleElevator\Debug\TerribleElevator.exe
+﻿  Manager.cpp
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(66,88): error C2248: 'Elevator::floor': cannot access private member declared in class 'Elevator'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.hpp(13): message : see declaration of 'Elevator::floor'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.hpp(11): message : see declaration of 'Elevator'

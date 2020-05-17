@@ -8,20 +8,24 @@ using namespace std;
 
 // contructors
 People::People() {
-    initialFloor = 1;                                   // default floor is 1
-    goalFloor = rand() % 10 + 1;                        // random floor between 1-10 inclusive
-    frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
-    frustrationCap = 5;                                 // max frustration is 5
-    direction = goalFloor - initialFloor < 0 ? -1 : 1;   // -1 if going down, 1 if going up
+    initialFloor = rand() % FLOORS + 1;                 // default floor is 1
+    goalFloor = rand() % FLOORS + 1;                    // random floor between 1-FLOORS inclusive
+    while (goalFloor == initialFloor) {                 // generate again until goal is different from initial
+        goalFloor = rand() % FLOORS + 1;
+    }
+    frustrationLevel = rand() % 6;                      // random frustration level between 0-5 inclusive
+    direction = goalFloor - initialFloor < 0 ? -1 : 1;  // -1 if going down, 1 if going up
     pressAll = false;                                   // whether the person is evil and presses all buttons
     holdOpen = 0;                                       // whether the person holds open the door
 }
 People::People(int ninitialFloor) {
-    initialFloor = ninitialFloor;                        // initial floor set to whatever is passed in
-    goalFloor = rand() % 10 + 1;                        // random floor between 1-10 inclusive
-    frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
-    frustrationCap = 5;                                 // max frustration is 5
-    direction = goalFloor - initialFloor < 0 ? -1 : 1;   // -1 if going down, 1 if going up
+    initialFloor = ninitialFloor;                       // initial floor set to whatever is passed in
+    goalFloor = rand() % FLOORS + 1;                    // random floor between 1-FLOORS inclusive
+    while (goalFloor == initialFloor) {                 // generate again until goal is different from initial
+        goalFloor = rand() % FLOORS + 1;
+    }
+    frustrationLevel = rand() % 6;                      // random frustration level between 0-5 inclusive
+    direction = goalFloor - initialFloor < 0 ? -1 : 1;  // -1 if going down, 1 if going up
     pressAll = false;                                   // whether the person is evil and presses all buttons
     holdOpen = 0;                                       // whether the person holds open the door
 }

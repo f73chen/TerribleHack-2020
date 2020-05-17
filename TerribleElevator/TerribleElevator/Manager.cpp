@@ -57,8 +57,13 @@ void Manager::test() {
 	elevatorPeopleList = {};
 
 	initPeople();
-	for (int i = 0; i < PEOPLE; i++) { cout << "People " << i << ": Initial floor: " << peopleList[i]->initialFloor << endl; }
-	/*initFloors();
+	for (int i = 0; i < PEOPLE; i++) { cout << "People " << i << ": Initial floor: " << peopleList[i]->initialFloor << ", goal floor: " << peopleList[i]->goalFloor << endl; }
+	
+	initFloors();
+	for (int i = 0; i < FLOORS; i++) { cout << "Floor number: " << floorList[i]->floorNum << endl; }
+	
 	initElevators();
-	run();*/
+	for (int i = 0; i < ELEVATORS; i++) { cout << "Elevator location: " << elevatorList[i]->floor<< endl; }
+	
+	//run();
 }

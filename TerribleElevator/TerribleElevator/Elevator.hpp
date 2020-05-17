@@ -14,7 +14,7 @@ private:
 	int speed;		// speed of travel
 	int direction;	// direction of travel: -1 for down, 1 for up, 0 for stopped
 	bool canMove;	// whether manager knows the door is closed and elevator can move again
-	vector<bool> buttonsPressed;	// @@@@@@@@vector of buttons, size is number of floors, 1 is pressed 0 is not pressed
+	vector<bool> buttonsPressed;	// vector of buttons, size is number of floors, 1 is pressed 0 is not pressed
 	int nextStop;	// sent by manager: either the next button pressed or the next floor with someone waiting, or the bottom or top floor
 	int numPeople;	// number of people currently in the elevator
 	int stoppingDistance;	// number of floors it takes for the elevator to go from full speed to stopped, if don't have this much room then will travel at 1/D speed

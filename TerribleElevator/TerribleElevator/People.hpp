@@ -12,7 +12,6 @@ private:
     int initialFloor;        // current floor
     int goalFloor;           // destination floor
     int frustrationLevel;    // current frustration level
-    int frustrationCap;      // frustration capacity 
     int direction;           // going up = -1, going down = 1
     bool pressAll;           // manager needs to handle pressing all buttons
     int holdOpen;            // manager needs to handle seconds door is held open
