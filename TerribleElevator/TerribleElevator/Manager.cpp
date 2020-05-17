@@ -68,8 +68,9 @@ int Manager::run() {
 	elevatorList[1] = tempNewEl;
 	vector<int> doorHoldTime(ELEVATORS, 0); // if the elevator is being held for its door
 
-	for(int round = 0; round < 30; round++) { // USUALLY SET TO WHILE TRUE INSTEAD OF A FOR LOOP
-		cout << endl << "Cycle " << round << ": " << endl;
+	int cycleCounter = 0;
+	while(true) {
+		cout << endl << "Cycle " << cycleCounter << ": " << endl; cycleCounter++;
 		vector<int> numCalls = {0, 0};
 		
 		//cout << "Checking whether elevators are at a floor: " << endl;
