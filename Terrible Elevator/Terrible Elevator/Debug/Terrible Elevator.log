@@ -1,0 +1,2 @@
+﻿Graphics.obj : error LNK2019: unresolved external symbol __imp__DWriteCreateFactory@12 referenced in function "public: bool __thiscall Graphics::Init(struct HWND__ *)" (?Init@Graphics@@QAE_NPAUHWND__@@@Z)
+C:\Users\lucas\Desktop\retardation\Terrible Elevator\Debug\Terrible Elevator.exe : fatal error LNK1120: 1 unresolved externals
