@@ -104,7 +104,7 @@ void ElevatorRender::drawElevators(vector<float> floorNum, Graphics* graphics) {
 }
 
 // Waiting Area
-void ElevatorRender::drawWaitingFloor(float floor, Graphics* graphics) { // input: waiting floor 
+void ElevatorRender::drawWaitingFloor(int floor, Graphics* graphics) { // input: waiting floor 
 	// Waiting Floor - Height: 100
 	graphics->DrawRectangle(
 		300, 710 - floor * 100, // top left x, y
