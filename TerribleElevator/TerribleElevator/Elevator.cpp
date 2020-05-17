@@ -3,6 +3,8 @@
 #include <vector>
 #include <array>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "Elevator.hpp"
 using namespace std;
 

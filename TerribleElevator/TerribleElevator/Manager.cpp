@@ -3,11 +3,14 @@
 #include <vector>
 #include <array>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "Manager.hpp"
 using namespace std;
 
 // initialize the vector of people
 void Manager::initPeople() {
+	srand(time(0)); // seeds the random number generator for the people objects
 	for (int i = 0; i < PEOPLE; i++) {
 		People* tempPerson = new People();		// this way, peopleList adds a pointer to a heap item
 		peopleList.push_back(tempPerson);		// adds a new default person
@@ -42,6 +45,14 @@ int Manager::run() {
 	for (People* tempPerson : peopleList) { // start by copying the pointers of people to their corresponding floor list
 		floorPeopleList[tempPerson->initialFloor - 1].push_back(tempPerson);
 	} // make sure to update each list after an action involving that floor is completed
+
+	int floorCount = 1;
+	for (vector<People*> eachFloor : floorPeopleList) {
+		cout << "Floor: " << floorCount++ << endl;
+		for (People* tempPerson : eachFloor) {
+			cout << "Initial floor: " << tempPerson->initialFloor << ", goal floor: " << tempPerson->goalFloor << endl;
+		}
+	}
 
 	/*while (true) {
 

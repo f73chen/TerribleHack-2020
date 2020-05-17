@@ -5,6 +5,8 @@
 #include <vector>
 #include <array>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "Floor.hpp"
 #include "People.hpp"
 #include "Elevator.hpp"
