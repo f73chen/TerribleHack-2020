@@ -17,7 +17,6 @@ People::People() {
         goalFloor = rand() % FLOORS + 1;
     }
     frustrationLevel = rand() % 6;                      // random frustration level between 0-5 inclusive
-    direction = goalFloor - initialFloor < 0 ? -1 : 1;  // -1 if going down, 1 if going up
     pressAll = false;                                   // whether the person is evil and presses all buttons
     holdOpen = 0;                                       // whether the person holds open the door
 }
@@ -28,7 +27,6 @@ People::People(int ninitialFloor) {
         goalFloor = rand() % FLOORS + 1;
     }
     frustrationLevel = rand() % 6;                      // random frustration level between 0-5 inclusive
-    direction = goalFloor - initialFloor < 0 ? -1 : 1;  // -1 if going down, 1 if going up
     pressAll = false;                                   // whether the person is evil and presses all buttons
     holdOpen = 0;                                       // whether the person holds open the door
 }
@@ -37,8 +35,6 @@ People::People(int ninitialFloor) {
 int People::get_goal_floor() { return goalFloor; }
 
 int People::get_frustration_level() { return frustrationLevel; }
-
-int People::get_direction() { return direction; }
 
 void People::set_frustration_level(int level) { frustrationLevel = level; }
 

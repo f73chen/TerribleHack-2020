@@ -89,40 +89,6 @@ int Elevator::nextSpeed(int numCalls) {
 		}
 	}
 	return 0; // move was accepted
-}
-
-// PURPOSE: add an "additional" number of people into the elevator
-// OUTPUT: int is the number of people that couldn't make it in
-int Elevator::enter(int additional) {
-	if (numPeople + additional <= CAPACITY) { // everyone can fit
-		numPeople += additional;
-		return 0;
-	}
-	else { // some people are left behind on that floor
-		additional += (numPeople - CAPACITY);
-		numPeople = CAPACITY;
-		return additional;
-	}
-}
-
-// PURPOSE: remove a "less" number of people from the elevator
-void Elevator::leave(int left) {
-	if (numPeople < left) {
-		cout << "Error: more people left than are in the elevator.\nFloor: " << floor << ", left: " << left << endl;
-		return;
-	}
-	else {
-		numPeople -= left;
-	}
-}
-
-// PURPOSE: add a list of buttons that the newly added people will press
-void Elevator::pressButton(vector<int> floorNums) {
-	for (int i = 0; i < floorNums.size(); i++) { // iterates through the list of buttons pressed
-		buttonsPressed[floorNums[i]] = 1; // set status to pressed
-	}
-	buttonsPressed[floor] = 0; // can't press the button for the floor you're already on
-}
 
 // PURPOSE: arrived at a certain floor, have to clear info about button
 void Elevator::arrive() {

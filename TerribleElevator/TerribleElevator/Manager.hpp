@@ -35,5 +35,11 @@ public:
 
 	// in-house tests of the contents of each list
 	void test();
+
+	// initiate the list of sequence when an elevator arrives at its destination floor
+	void elevatorArrived(Elevator* tempElevator);
+
+	// returns a vector containing the current position of all elevators
+	vector<float> getElevatorFloorNums();
 };
 #endif

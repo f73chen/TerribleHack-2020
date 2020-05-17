@@ -46,13 +46,6 @@ public:
 	// INPUT: numCalls is the number of times the people waiting have pressed the up/down buttons
 	int nextSpeed(int numCalls);
 
-	// PURPOSE: add an "additional" number of people into the elevator
-	// OUTPUT: int is the number of people that couldn't make it in
-	int enter(int additional);
-
-	// PURPOSE: remove a "less" number of people from the elevator
-	void leave(int left);
-
 	// PURPOSE: add a list of buttons that the newly added people will press
 	void pressButton(vector<int> floorNums);
 
