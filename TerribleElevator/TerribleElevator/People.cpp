@@ -16,8 +16,8 @@ People::People() {
     pressAll = false;                                   // whether the person is evil and presses all buttons
     holdOpen = 0;                                       // whether the person holds open the door
 }
-People::People(int initialFloor) {
-    initialFloor = initialFloor;                        // initial floor set to whatever is passed in
+People::People(int ninitialFloor) {
+    initialFloor = ninitialFloor;                        // initial floor set to whatever is passed in
     goalFloor = rand() % 10 + 1;                        // random floor between 1-10 inclusive
     frustrationLevel = 1;                               // random frustration level between 1-5 inclusive
     frustrationCap = 5;                                 // max frustration is 5

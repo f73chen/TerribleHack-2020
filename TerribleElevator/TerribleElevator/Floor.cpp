@@ -9,7 +9,7 @@ using namespace std;
 
 // contructors
 Floor::Floor(int nfloorNum) : numPeopleUp(0), numPeopleDown(0), numUp(0), numDown(0) {
-    nfloorNum = floorNum;
+    floorNum = nfloorNum;
     totalPeople = numPeopleDown + numPeopleUp;
 }
 

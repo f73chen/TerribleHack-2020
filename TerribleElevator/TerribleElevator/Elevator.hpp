@@ -5,6 +5,7 @@
 #include <vector>
 #include <array>
 #include <string>
+#include "Manager.hpp"
 using namespace std;
 
 class Elevator {
@@ -15,22 +16,16 @@ private:
 	bool canMove;	// whether manager knows the door is closed and elevator can move again
 	vector<bool> buttonsPressed;	// @@@@@@@@vector of buttons, size is number of floors, 1 is pressed 0 is not pressed
 	int nextStop;	// sent by manager: either the next button pressed or the next floor with someone waiting, or the bottom or top floor
-	int FLOORS;		// total number of floors
-	int CAPACITY;	// max capacity of the carriage
 	int numPeople;	// number of people currently in the elevator
 	int stoppingDistance;	// number of floors it takes for the elevator to go from full speed to stopped, if don't have this much room then will travel at 1/D speed
-	int MAX_SPEED;	// maximum speed the car can travel at
 public:
 	// default constructor
-	Elevator() :floor(1), speed(0), direction(0), canMove(false), buttonsPressed({ false }), nextStop(1), FLOORS(1), CAPACITY(0), numPeople(0), stoppingDistance(1), MAX_SPEED(0) {}
+	Elevator() :floor(1), speed(0), direction(0), canMove(false), buttonsPressed({ false }), nextStop(1), numPeople(0), stoppingDistance(1) {}
 
 	// constructor with parameters
-	Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed,
-		int nnextStop, int nFLOORS, int nCAPACITY, int nnumPeople,
-		int nstoppingDistance, int nMAX_SPEED) :
+	Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector<bool> nbuttonsPressed, int nnextStop, int nnumPeople, int nstoppingDistance) :
 		floor(nfloor), speed(nspeed), direction(ndirection), canMove(ncanMove), buttonsPressed(nbuttonsPressed),
-		nextStop(nnextStop), FLOORS(nFLOORS), CAPACITY(nCAPACITY), numPeople(nnumPeople),
-		stoppingDistance(nstoppingDistance), MAX_SPEED(nMAX_SPEED) {}
+		nextStop(nnextStop), numPeople(nnumPeople), stoppingDistance(nstoppingDistance) {}
 
 	// returns whether adding more people would not overload it
 	bool withinCapacity(int additional) { return numPeople + additional <= CAPACITY; }

@@ -1,13 +1,13 @@
 #ifndef MANAGER_HPP
 #define MANAGER_HPP
-#include "Elevator.h"
-#include "Floor.hpp"
-#include "People.hpp"
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <array>
 #include <string>
+#include "Elevator.hpp"
+#include "Floor.hpp"
+#include "People.hpp"
 using namespace std;
 
 int MAX_SPEED = 5;		// max speed of each elevator car
@@ -22,7 +22,7 @@ private:
 	vector<Floor*> floorList;		// list of floor objects 
 	vector<Elevator*> elevatorList;	// list of all elevator objects
 	vector<vector<People*>> floorPeopleList;		// list of everyone in each floor
-	vector<vector<People*>> elevatorPeopleList;	// list of everyone in each elevator
+	vector<vector<People*>> elevatorPeopleList;		// list of everyone in each elevator
 public:
 	// default constructor
 	Manager() { initFloors(); initPeople(); initElevators(); }
