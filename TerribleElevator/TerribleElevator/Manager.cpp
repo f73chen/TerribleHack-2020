@@ -44,16 +44,35 @@ int Manager::run() {
 	// ADJUST NUMBERS SO TIMING IS MORE REALISTIC
 
 	// testing output to make sure people are put into their corresponding floor lists
-	for (Floor* eachFloor : floorList) {
+	/*for (Floor* eachFloor : floorList) {
 		cout << "Floor: " << eachFloor->floorNum << endl;
 		for (People* tempPerson : eachFloor->peopleList) {
 			cout << "Initial floor: " << tempPerson->initialFloor << ", goal floor: " << tempPerson->goalFloor << endl;
 		}
-	}
-
-	/*while (true) {
-
 	}*/
+
+	int cycleCounter = 0;
+	for(int round = 0; round < 10; round++) { // USUALLY SET TO WHILE TRUE
+		cout << "Cycle " << cycleCounter << ": " << endl;
+		
+		cout << "Checking whether elevators are at a floor: " << endl;
+		for (int i = 0; i < ELEVATORS; i++) {
+			Elevator* tempElevator = elevatorList[i];
+			int currentFloor = tempElevator->floor;
+			if (tempElevator->distanceToNextFloor <= 0) { //if at a floor
+				cout << "Elevator " << i << " is at floor " << currentFloor << endl;
+			}
+			else { //if on route
+				cout << "Elevator " << i << " is travelling from floor " << currentFloor << " in direction " << tempElevator->direction << endl;
+				tempElevator->distanceToNextFloor -= tempElevator->speed;
+				if (tempElevator->distanceToNextFloor <= 0) { // if arrives in the next cycle, set floor there
+					tempElevator->floor += tempElevator->direction;
+				}
+			}
+		}
+
+		cycleCounter++;
+	}
 	return 0;
 }
 
