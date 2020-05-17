@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FLOOR_HPP
+#define FLOOR_HPP
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -26,3 +27,4 @@ public:
     // friends
     friend class Manager;
 };
+#endif

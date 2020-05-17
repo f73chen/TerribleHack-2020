@@ -4,7 +4,7 @@
 #include <array>
 #include <string>
 #include "Manager.hpp"
-#include "Elevator.h"
+#include "Elevator.hpp"
 #include "Floor.hpp"
 #include "People.hpp"
 using namespace std;

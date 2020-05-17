@@ -1,11 +1,11 @@
 ﻿  Elevator.cpp
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.hpp(23,9): error C2065: 'Elevator': undeclared identifier
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.hpp(23,18): error C2059: syntax error: '>'
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.hpp(24,9): error C2065: 'Elevator': undeclared identifier
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.hpp(24,18): error C2059: syntax error: '>'
 C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(106,20): warning C4018: '<': signed/unsigned mismatch
   Floor.cpp
   Manager.cpp
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.h(31,73): error C2065: 'CAPACITY': undeclared identifier
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.hpp(32,73): error C2065: 'CAPACITY': undeclared identifier
   People.cpp
   TerribleElevator.cpp
-C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.h(31,73): error C2065: 'CAPACITY': undeclared identifier
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.hpp(32,73): error C2065: 'CAPACITY': undeclared identifier
   Generating Code...

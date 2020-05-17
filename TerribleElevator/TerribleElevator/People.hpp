@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PEOPLE_HPP
+#define PEOPLE_HPP
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -29,3 +30,4 @@ public:
     friend class Manager;
 
 };
+#endif

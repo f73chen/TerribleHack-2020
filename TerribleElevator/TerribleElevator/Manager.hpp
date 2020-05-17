@@ -5,16 +5,17 @@
 #include <vector>
 #include <array>
 #include <string>
+#include <string>
 #include "Elevator.hpp"
 #include "Floor.hpp"
 #include "People.hpp"
 using namespace std;
 
-int MAX_SPEED = 5;		// max speed of each elevator car
-int CAPACITY = 8;		// max capacity of each elevator car
-int FLOORS = 7;			// total number of floors in the building
-int PEOPLE = 10;		// total number of NPC people
-int ELEVATORS = 2;		// total number of elevators
+extern int MAX_SPEED = 5;		// max speed of each elevator car
+extern int CAPACITY = 8;		// max capacity of each elevator car
+extern int FLOORS = 7;			// total number of floors in the building
+extern int PEOPLE = 10;		// total number of NPC people
+extern int ELEVATORS = 2;		// total number of elevators
 
 class Manager {
 private:

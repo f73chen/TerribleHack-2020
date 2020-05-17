@@ -3,7 +3,7 @@
 #include <vector>
 #include <array>
 #include <string>
-#include "Elevator.h"
+#include "Elevator.hpp"
 using namespace std;
 
 // PURPOSE: checks the position, direction, buttons pressed, and nextStop to determine whether it moves at 

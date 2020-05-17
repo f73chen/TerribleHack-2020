@@ -18,6 +18,7 @@ private:
 	int nextStop;	// sent by manager: either the next button pressed or the next floor with someone waiting, or the bottom or top floor
 	int numPeople;	// number of people currently in the elevator
 	int stoppingDistance;	// number of floors it takes for the elevator to go from full speed to stopped, if don't have this much room then will travel at 1/D speed
+
 public:
 	// default constructor
 	Elevator() :floor(1), speed(0), direction(0), canMove(false), buttonsPressed({ false }), nextStop(1), numPeople(0), stoppingDistance(1) {}

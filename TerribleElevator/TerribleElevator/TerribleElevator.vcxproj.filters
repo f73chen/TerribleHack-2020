@@ -50,7 +50,7 @@
     <ClInclude Include="Floor.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Elevator.h">
+    <ClInclude Include="Elevator.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
