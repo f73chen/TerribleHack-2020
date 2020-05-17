@@ -10,6 +10,8 @@
 Graphics* graphics;
 Gui gui;
 ElevatorRender elevatorrender;
+Manager manager;
+User user;
 
 LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {
 
@@ -97,8 +99,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 			}
 			else {
 				elevatorrender.drawShafts(graphics);
-				elevatorrender.drawElevators(Manager::getElevatorFloorNums(), graphics);
-				elevatorrender.drawWaitingFloor(User::getCurrentFloor(), graphics);
+				elevatorrender.drawElevators(manager.getElevatorFloorNums(), graphics);
+				elevatorrender.drawWaitingFloor(user.getCurrentFloor(), graphics);
 			}
 
 			graphics->EndDraw();
