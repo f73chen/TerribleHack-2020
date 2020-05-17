@@ -1,3 +1,10 @@
-﻿  Manager.cpp
+﻿  Elevator.cpp
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(121,20): warning C4018: '<': signed/unsigned mismatch
+  Floor.cpp
+  Manager.cpp
 C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Manager.cpp(30,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  People.cpp
+  TerribleElevator.cpp
+  Generating Code...
+C:\Users\User\source\repos\TerribleHack\TerribleElevator\TerribleElevator\Elevator.cpp(47): warning C4715: 'Elevator::validMove': not all control paths return a value
   TerribleElevator.vcxproj -> C:\Users\User\source\repos\TerribleHack\TerribleElevator\Debug\TerribleElevator.exe

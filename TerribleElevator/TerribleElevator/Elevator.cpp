@@ -9,7 +9,7 @@
 using namespace std;
 
 // default constructor
-Elevator::Elevator() :floor(1), speed(0), direction(0), canMove(false), nextStop(1), stoppingDistance(1), peopleList({}), distanceToNextFloor(DIST_BTW_FLOORS), numPeople(0) {
+Elevator::Elevator() :floor(1), speed(2), direction(1), canMove(true), nextStop(3), stoppingDistance(1), peopleList({}), distanceToNextFloor(DIST_BTW_FLOORS), numPeople(0) {
 	vector<bool> nbuttonsPressed(FLOORS, false);
 	buttonsPressed = nbuttonsPressed; // assumes that no buttons are pressed
 }
