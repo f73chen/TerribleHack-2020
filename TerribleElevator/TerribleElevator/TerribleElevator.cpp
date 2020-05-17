@@ -5,6 +5,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 #include "Manager.hpp"
 
 using namespace std;

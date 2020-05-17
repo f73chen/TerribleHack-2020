@@ -7,6 +7,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 #include "Floor.hpp"
 #include "People.hpp"
 #include "Elevator.hpp"

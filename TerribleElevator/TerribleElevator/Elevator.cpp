@@ -5,13 +5,15 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 #include "Elevator.hpp"
 using namespace std;
 
 // default constructor
-Elevator::Elevator() :floor(1), speed(2), direction(1), canMove(true), nextStop(3), peopleList({}), distanceToNextFloor(DIST_BTW_FLOORS), numPeople(0) {
+Elevator::Elevator() :floor(1), speed(6), direction(1), canMove(true), nextStop(2), peopleList({}), distanceToNextFloor(DIST_BTW_FLOORS), numPeople(0) {
 	vector<bool> nbuttonsPressed(FLOORS, false);
 	buttonsPressed = nbuttonsPressed; // assumes that no buttons are pressed
+	// NOTE: nextStop must not be the same as floor
 }
 
 // parameterized constructor
@@ -24,13 +26,13 @@ Elevator::Elevator(int nfloor, int nspeed, int ndirection, bool ncanMove, vector
 // PURPOSE: checks whether the car can move to the next space specified
 bool Elevator::validMove() {
 	// if manager tells the car to not move
-	if (!canMove) { return false; }
+	if (!canMove) { cout << "Can't move" << endl; return false; }
 
 	// if already at the top floor and going up
-	if (floor == FLOORS && direction > 0) { return false; }
+	if (floor == FLOORS && direction > 0) { cout << "At ceiling" << endl; return false; }
 
 	// if already at the bottom floor and going down
-	if (floor == 0 && direction < 0) { return false; }
+	if (floor == 0 && direction < 0) { cout << "At ground" << endl; return false; }
 }
 
 // PURPOSE: checks current floor, direction, stopping distance and next floor to determine what speed it should travel at
