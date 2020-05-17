@@ -154,6 +154,7 @@
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="People.cpp" />
     <ClCompile Include="TerribleElevator.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elevator.hpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Manager.hpp" />
     <ClInclude Include="People.hpp" />
+    <ClInclude Include="User.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
