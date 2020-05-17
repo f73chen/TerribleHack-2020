@@ -7,25 +7,25 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 #include "Globals.hpp"
 using namespace std;
 
 class User {
 private:
-    int initialFloor;        // current floor
-    int goalFloor;           // destination floor
-    int direction;           // going up = -1, going down = 1
-    bool holdOpen;           // user holds door open
+    int initialFloor;       // current floor
+    int goalFloor;          // destination floor
+    int holdOpen;           // user holds door open
+    int id;                 // id tag, must not be 0
 public:
     // constructors
     User();
     // methods
     int get_goal_floor();           // returns goal floor
-    int get_direction();            // returns direction of person
-    void chooseFloor(int floor);    // user button to go to a floor
-    void doorOpen();                // method to set holdOpen to true
+    void setGoalFloor(int floor);    // user button to go to a floor
+    void doorOpen();                // every click holds the door open for longer
+
     // friends
     friend class Manager;
-
 };
 #endif

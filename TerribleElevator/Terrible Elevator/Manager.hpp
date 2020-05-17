@@ -7,6 +7,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 #include "Floor.hpp"
 #include "People.hpp"
 #include "Elevator.hpp"
@@ -35,5 +36,14 @@ public:
 
 	// in-house tests of the contents of each list
 	void test();
+
+	// initiate the list of sequence when an elevator arrives at its destination floor
+	void elevatorArrived(Elevator* tempElevator);
+
+	// returns a vector containing the current position of all elevators
+	vector<float> getElevatorFloorNums();
+
+	// generate new people in the building based on the number that left
+	void generateNewRiders(int num);
 };
 #endif

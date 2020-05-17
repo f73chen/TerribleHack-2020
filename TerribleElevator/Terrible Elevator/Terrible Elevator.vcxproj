@@ -149,15 +149,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Elevator.cpp" />
     <ClCompile Include="ElevatorRender.cpp" />
+    <ClCompile Include="Floor.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="gui.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="People.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Elevator.hpp" />
     <ClInclude Include="ElevatorRender.h" />
+    <ClInclude Include="Floor.hpp" />
+    <ClInclude Include="Globals.hpp" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="gui.h" />
+    <ClInclude Include="Manager.hpp" />
+    <ClInclude Include="People.hpp" />
+    <ClInclude Include="User.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
