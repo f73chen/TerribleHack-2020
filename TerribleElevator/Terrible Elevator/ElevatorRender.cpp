@@ -98,7 +98,7 @@ void ElevatorRender::drawElevators(vector<float> floorNum, Graphics* graphics) {
 	);
 	graphics->DrawRectangle( // Elevator 2
 		720+20, 710-floorNum[1]*100+10, // top left x, y
-		800-20, 710-floorNum[1]*100+100, // bottom right x, y
+		880-20, 710-floorNum[1]*100+100, // bottom right x, y
 		0.0f, 0.0f, 1.0f, 0.8f
 	);
 }
@@ -108,7 +108,7 @@ void ElevatorRender::drawWaitingFloor(int floor, Graphics* graphics) { // input:
 	// Waiting Floor - Height: 100
 	graphics->DrawRectangle(
 		300, 710 - floor * 100, // top left x, y
-		660, 710 - floor * 100 + 100, // bottom right x, y
+		980, 710 - floor * 100 + 100, // bottom right x, y
 		0.5f, 0.5f, 0.5f, 0.5f
 	);
 
