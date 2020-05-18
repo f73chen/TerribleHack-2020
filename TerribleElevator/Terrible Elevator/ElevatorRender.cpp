@@ -97,19 +97,14 @@ void ElevatorRender::drawElevators(int floorNum1, int floorNum2, Graphics* graph
 		0.0f, 0.0f, 1.0f, 0.8f
 	);
 	graphics->DrawRectangle( // Elevator 2
-<<<<<<< Updated upstream
-		720+20, 710-floorNum[1]*100+10, // top left x, y
-		800-20, 710-floorNum[1]*100+100, // bottom right x, y
-=======
 		720+20, 710-floorNum2*100+10, // top left x, y
 		880-20, 710-floorNum2*100+100, // bottom right x, y
->>>>>>> Stashed changes
 		0.0f, 0.0f, 1.0f, 0.8f
 	);
 }
 
 // Waiting Area
-void ElevatorRender::drawWaitingFloor(float floor, Graphics* graphics) { // input: waiting floor 
+void ElevatorRender::drawWaitingFloor(int floor, Graphics* graphics) { // input: waiting floor 
 	// Waiting Floor - Height: 100
 	graphics->DrawRectangle(
 		300, 710 - floor * 100, // top left x, y
