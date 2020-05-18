@@ -273,3 +273,13 @@ void Manager::generateNewRiders(int num) {
 		}
 	}
 }
+
+int Manager::generateElevator1() {
+	int floorNum = (rand() % 7) + 1;
+	return floorNum;
+}
+
+int Manager::generateElevator2() {
+	int floorNum = (rand() % 7) + 1;
+	return floorNum;
+}
