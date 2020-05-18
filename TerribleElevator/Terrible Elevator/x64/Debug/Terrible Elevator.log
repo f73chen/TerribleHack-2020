@@ -1,1 +1,7 @@
+<<<<<<< Updated upstream
 ﻿  Terrible Elevator.vcxproj -> C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\x64\Debug\Terrible Elevator.exe
+=======
+﻿  main.cpp
+C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\Terrible Elevator\main.cpp(25): warning C4715: 'WindowProc': not all control paths return a value
+  Terrible Elevator.vcxproj -> C:\Users\USER\Documents\GitHub\TerribleHack\TerribleElevator\x64\Debug\Terrible Elevator.exe
+>>>>>>> Stashed changes
