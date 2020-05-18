@@ -2,7 +2,7 @@
 #define GLOBALS_HPP
 
 const int MAX_SPEED = 4;		// max speed of each elevator car
-const int CAPACITY = 8;			// max capacity of each elevator car
+const int CAPACITY = 2;			// max capacity of each elevator car
 const int FLOORS = 7;			// total number of floors in the building
 const int PEOPLE = 20;			// total number of NPC people
 const int ELEVATORS = 2;		// total number of elevators

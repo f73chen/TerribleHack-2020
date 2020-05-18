@@ -114,8 +114,8 @@ int Manager::run() {
 				}
 			}
 		}
-		cin.get(); // doesn't go to the next cycle until enters something in console
-		//Sleep(200);
+		//cin.get(); // doesn't go to the next cycle until enters something in console
+		Sleep(1000);
 	}
 
 	// testing output to make sure people are put into their corresponding floor lists
