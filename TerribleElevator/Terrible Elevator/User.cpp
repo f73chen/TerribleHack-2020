@@ -22,6 +22,18 @@ User::User() {
 }
 
 // methods
+<<<<<<< Updated upstream
+=======
+int User::getCurrentFloor() {
+    if (goalFloor + 3 <= 7) {
+        return goalFloor + 3;
+    }
+    else {
+        return goalFloor + (7 - (goalFloor + 3));
+    }
+}
+
+>>>>>>> Stashed changes
 int User::get_goal_floor() { return goalFloor; }
 
 void User::setGoalFloor(int floor) { goalFloor = floor; }
