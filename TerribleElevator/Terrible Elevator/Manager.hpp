@@ -45,5 +45,11 @@ public:
 
 	// generate new people in the building based on the number that left
 	void generateNewRiders(int num);
+
+	// generate positions of elevator 1
+	int generateElevator1();
+
+	// generate positions of elevator 2
+	int generateElevator2();
 };
 #endif
