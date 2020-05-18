@@ -11,6 +11,8 @@ Graphics* graphics;
 Gui gui1;
 Gui gui2;
 ElevatorRender elevatorrender;
+Manager manager;
+User user;
 
 LRESULT CALLBACK WindowProc(_In_ HWND hwnd, _In_ UINT uMsg, _In_ WPARAM wParam, _In_ LPARAM lParam) {
 
@@ -75,11 +77,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 				int y = cursorPos.y;
 
 				if (guiStatus) {
-<<<<<<< Updated upstream
-					if (gui.Check(x, y, gfx)) {
-=======
 					if (gui1.Check(x, y, graphics)) {
->>>>>>> Stashed changes
 						OutputDebugString(L"True\n");
 					}
 					else {
@@ -105,13 +103,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
 			}
 			else {
 				elevatorrender.drawShafts(graphics);
-<<<<<<< Updated upstream
-				elevatorrender.drawElevators(Manager::getElevatorFloorNums(), graphics);
-				elevatorrender.drawWaitingFloor(User::getCurrentFloor(), graphics);
-=======
 				elevatorrender.drawElevators(manager.generateElevator1(), manager.generateElevator2(), graphics);
 				elevatorrender.drawWaitingFloor(user.getCurrentFloor(), graphics);
->>>>>>> Stashed changes
 			}
 
 			graphics->EndDraw();
