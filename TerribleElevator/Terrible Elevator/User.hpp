@@ -21,6 +21,7 @@ public:
     // constructors
     User();
     // methods
+    int getCurrentFloor();
     int get_goal_floor();           // returns goal floor
     void setGoalFloor(int floor);    // user button to go to a floor
     void doorOpen();                // every click holds the door open for longer
