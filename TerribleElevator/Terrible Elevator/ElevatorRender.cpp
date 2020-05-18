@@ -90,15 +90,20 @@ void ElevatorRender::drawShafts(Graphics* graphics) {
 }
 
 // 2 Elevators - Width: 120, Height: 90
-void ElevatorRender::drawElevators(vector<float> floorNum, Graphics* graphics) { // inputs: current floor numbers
+void ElevatorRender::drawElevators(int floorNum1, int floorNum2, Graphics* graphics) { // inputs: current floor numbers
 	graphics->DrawRectangle( // Elevator 1
-		400+20, 710-floorNum[0]*100+10, // top left x, y
-		560-20, 710-floorNum[0]*100+100, // bottom right x, y
+		400+20, 710-floorNum1*100+10, // top left x, y
+		560-20, 710-floorNum1*100+100, // bottom right x, y
 		0.0f, 0.0f, 1.0f, 0.8f
 	);
 	graphics->DrawRectangle( // Elevator 2
+<<<<<<< Updated upstream
 		720+20, 710-floorNum[1]*100+10, // top left x, y
 		800-20, 710-floorNum[1]*100+100, // bottom right x, y
+=======
+		720+20, 710-floorNum2*100+10, // top left x, y
+		880-20, 710-floorNum2*100+100, // bottom right x, y
+>>>>>>> Stashed changes
 		0.0f, 0.0f, 1.0f, 0.8f
 	);
 }
