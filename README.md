@@ -1,5 +1,7 @@
 # TerribleHack
 
+### Description
+
 This is a project for the TerribleHack Hackathon. It consists of an Elevator, simulated in C++, that picks up riders and drops them off at random floors. Several objects are drawn to represent the floors, buttons, and NPCs.
 
 ### Challenges and Improvements
